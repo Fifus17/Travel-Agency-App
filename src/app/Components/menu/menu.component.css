@@ -25,6 +25,7 @@ button i {
 .nav-item i {
     font-size: 2.3rem;
     margin-right: 10px;
+    margin-left: 10px;
 }
 
 .nav-link {
@@ -33,4 +34,10 @@ button i {
 
 #mainNav {
     width: 350px;
+}
+
+.offcanvas-title {
+   position: absolute; 
+   left: 80px;
+   top: 16px;
 }

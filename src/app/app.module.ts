@@ -31,6 +31,8 @@ import { PlaceholderTripCardComponent } from './Components/placeholder-trip-card
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
+import { LoginRegisterButtonsComponent } from './Components/login-register-buttons/login-register-buttons.component';
+import { LogOutButtonComponent } from './Components/log-out-button/log-out-button.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { environment } from '../environments/environment';
     CommentFormComponent,
     OverallReviewComponent,
     PlaceholderTripCardComponent,
+    LoginRegisterButtonsComponent,
+    LogOutButtonComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
 
 <button class="btn btn-grad" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas" style="position: relative; margin: 12px;">
     <i class="bi bi-cart"></i>
-    <span class="position-absolute translate-middle badge rounded-pill" [ngClass]="{'bg-danger': itemsCounter <= 10, 'bg-success': itemsCounter > 10}" style="left: 0%; top: 0%;">
-       {{itemsCounter}}
+    <span class="position-absolute translate-middle badge rounded-pill" [ngClass]="{'bg-danger': totalPlaces() <= 10, 'bg-success': totalPlaces() > 10}" style="left: 0%; top: 0%;">
+       {{totalPlaces()}}
     </span>
 </button>
 
@@ -13,16 +13,15 @@
 </div>
 <div class="offcanvas-body">
     <!-- Your cart is empty -->
-    <div *ngFor="let thisdata of currentData">
-    <app-shopping-cart-card [data]="tripsData[thisdata.id]" [currentData]="thisdata"></app-shopping-cart-card>
+    <div *ngFor="let item of cart; index as idx">
+        <app-shopping-cart-card [data]="item" [index]="idx"></app-shopping-cart-card>
     </div>
-    
 </div>
 <div class="offcanvas-footer">
     <div class="nav sticky-bottom">
         <div class="container-fluid">
             <div class="row">
-                <h5 class="total">Total: {{currentPrice}}$</h5>
+                <h5 class="total">Total: ${{totalPrice()}}</h5>
                 <div class="btn btn-grad checkout">Checkout</div>
             </div>
         </div>

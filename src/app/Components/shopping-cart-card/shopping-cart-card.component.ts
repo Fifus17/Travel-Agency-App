@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import { CartDataService } from 'src/app/Services/cart-data.service';
 
 @Component({
   selector: 'app-shopping-cart-card',
@@ -9,30 +9,33 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ShoppingCartCardComponent implements OnInit {
 
   @Input('data') data: any;
-  @Input('currentData') currentData: any;
+  @Input('index') index: number = -1;
+  passingData: any;
+  changedData: any;
+  counter: number = 0;
+  currentPrice: number = 0;
+  maxPlaces: number = 0;
+  minusButton: any;
+  plusButton: any;
 
-  maxPlaces:number = 30;
-  currentPrice:number = 0;
-  counter:number = 5;
-  minusButton:any;
-  plusButton:any;
-  grad:number = 0;
-  flag = true;
-
-  constructor() {
+  constructor(private dataService: CartDataService) {
     this.minusButton = document.getElementById("minus-button");
     this.plusButton = document.getElementById("plus-button");
   }
 
   ngOnInit() {
-    this.counter = this.currentData.counter;
-    this.maxPlaces = this.currentData.counter;
-    this.currentPrice = this.currentData.counter * this.data.price;
+    this.passingData = this.data;
+    this.counter = this.data.places;
+    this.maxPlaces = this.data.places;
+    this.currentPrice = this.data.price * this.counter;
   }
 
    addPlace() {
     if(this.counter < this.maxPlaces) {
       this.counter++;
+      this.changedData = this.data;
+      this.changedData.places = this.counter;
+      this.dataService.setBasketData(this.changedData, this.index);
     }
     else {
       this.minusButton.disabled = false;
@@ -42,7 +45,10 @@ export class ShoppingCartCardComponent implements OnInit {
 
   removePlace() {
     if(this.counter > 0) {
-    this.counter--;
+      this.counter--;
+      this.changedData = this.data;
+      this.changedData.places = this.counter;
+      this.dataService.setBasketData(this.changedData, this.index);
     }
     else {
       this.minusButton.disabled = true;

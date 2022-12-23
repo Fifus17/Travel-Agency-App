@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { CartDataService } from '../../Services/cart-data.service';
 import * as tripsData from '../../Data/tripsData.json';
+
+import { CartDataService } from '../../Services/cart-data.service';
+import { Trip } from '../../Interfaces/ITrip';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -10,23 +13,28 @@ import * as tripsData from '../../Data/tripsData.json';
 })
 export class ShoppingCartComponent {
   
+  cart: Trip[] = [];
   itemsCounter: number = 0;
-  currentPrice: number = 0;
-  currentData: any;
 
-  tripsData: any = [];
-  dataKeys = Object.keys(tripsData).slice(0, -2);
-
-  constructor(private data: CartDataService) { 
-    this.tripsData = tripsData;
-    this.data.cartData.subscribe(currentData => this.currentData = currentData) 
-    console.log(this.currentData);
-    for (let i = 0; i < this.currentData.length; i++) {
-      this.itemsCounter += this.currentData[i].counter;
-      this.currentPrice += this.currentData[i].counter * this.tripsData[this.currentData[i].id].price;
-    }
-    console.log(this.itemsCounter);
+  constructor(private data: CartDataService) { }
+  ngOnInit(): void {
+    this.cart = this.data.getBasketData();
   }
-  
+
+  totalPrice(): number {
+    let total = 0;
+    for (let trip of this.cart) {
+      total += trip.price * trip.places;
+    }
+    return total;
+  }
+
+  totalPlaces(): number {
+    let total = 0;
+    for (let trip of this.cart) {
+      total += trip.places;
+    }
+    return total;
+  }
 
 }

@@ -1,0 +1,58 @@
+<!-- <div class="card">
+    <img src="https://media.cntraveler.com/photos/5ea883674e5fff00083ccef1/master/pass/Safari-GettyImages-143917249.jpg" class="card-img-top" alt="...">
+    <div class="name">
+        <h3 class="title">Safari</h3>
+        <span class="badge rounded-pill bg-warning" style="padding: 3px 5px; height: 1.5em; margin-top: 0.8em; margin-left: 0.3em;">
+            <strong style="font-size: 0.5em;">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <i class="bi bi-star"></i>
+                3.7/5.0
+            </strong>
+        </span>
+    </div>
+    <p class="date">27/09/2022 - 03/10/2022</p>
+    <app-trip-details class="info"></app-trip-details>
+    <div class="footer">
+        <div class="buttons">
+            <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button">-</button>
+            <h6 class="counter">12</h6>
+            <button type="button" class="btn btn-grad plus-button sign-button" id="plus-button">+</button>
+        </div>
+        <div class="checkout">
+            <h1 class="price">1200$</h1>
+        </div>
+    </div>
+</div> -->
+
+<div class="card">
+    <img [src]="data.image" class="card-img-top" alt="...">
+    <div class="name">
+        <h3 class="title">{{data.title}}</h3>
+        <span class="badge rounded-pill bg-warning" style="padding: 3px 5px; height: 1.5em; margin-top: 0.8em; margin-left: 0.3em;">
+            <strong style="font-size: 0.5em;">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <i class="bi bi-star"></i>
+                3.7/5.0
+            </strong>
+        </span>
+    </div>
+    <p class="date">{{data.dayOut}} - {{data.dayIn}}</p>
+    <app-trip-details class="info"></app-trip-details>
+    <div class="footer">
+        <div class="buttons">
+            <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button" (click)="removePlace()">-</button>
+            <h6 class="counter">{{counter}}</h6>
+            <button type="button" class="btn btn-grad plus-button sign-button" id="plus-button" (click)="addPlace()">+</button>
+        </div>
+        <div class="checkout">
+            <h1 class="price">{{data.price}}$</h1>
+        </div>
+    </div>
+</div>
+

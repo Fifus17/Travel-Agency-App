@@ -1,0 +1,45 @@
+.card {
+    margin-top: 25px;
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.photo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+}
+
+img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+}
+
+.nickname {
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+.text-container {
+    overflow: scroll;
+}
+
+.review {
+    margin-top: 25px;
+    margin-right: 50px;
+    margin-bottom: 25px;
+}
+
+.date-container {
+    font-size: 0.5rem;
+}
+
+.star {
+    color: #FFD700;
+}

@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">{{data.title | uppercase}}</h3>
+    </div>
+    <div class="card-body">
+        <img [src]="data.image" class="card-img-top" alt="...">
+        <h5 class="country">{{data.country | uppercase}}</h5>
+        <h6 class="date">{{data.dayIn}} - {{data.dayOut}}</h6>
+        <p class="description" style="overflow: scroll; max-height: 174px;">{{data.description}}</p>
+        <p class="places">Number of places: {{data.places}}</p>
+        <hr>
+        <button type="button" class="btn btn-primary plus-button sign-button" id="plus-button" [disabled]="this.counter == this.maxPlaces" (click)="addPlace()">+</button>
+        <button type="button" class="btn btn-primary minus-button sign-button" id="minus-button" [disabled]="this.counter == 0" (click)="removePlace()">-</button>
+        <h6 class="counter">{{counter}}</h6>
+        <div class="progress">
+            <div class="progress-bar" [ngClass]="{'bg-success': places/maxPlaces*100 > 60, 'bg-warning': places/maxPlaces*100 > 20 && places/maxPlaces*100 <= 60, 'bg-danger': places/maxPlaces*100 <= 20}" role="progressbar" [ngStyle]="{'width.%': places/maxPlaces*100}" attr.aria-valuenow="{{places/maxPlaces*100}}" aria-valuemin="0" aria-valuemax="100">{{this.places}}</div>
+        </div>
+    </div>
+    <span class="position-absolute top-100 translate-middle badge rounded-pill bg-secondary" style="left: 80%;">
+        <strong style="font-size: 4em;">{{data.price+data.currency}}</strong>
+      </span>
+      <span class="position-absolute translate-middle badge rounded-pill bg-warning" style="left: 80%; top: 50%; padding: 3px 5px;">
+        <strong style="font-size: 0.5em;">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+            <i class="bi bi-star"></i>
+            {{data.avgRating}}/5.0
+        </strong>
+      </span>
+    <span class="x-button position-absolute start-100 top-0 translate-middle badge rounded-pill bg-danger" style="padding: 0px; width: 41px; padding-bottom: 5px; display: none;">
+        <strong style="font-size: 3em;">x</strong>
+    </span>
+
+    <span class="grading position-absolute translate-middle badge rounded-pill bg-warning" style="left: 20%; top: 100%;">
+        <strong style="font-size: 2.5em;">
+            <i class="star bi" [ngClass]="{'bi-star': grad == 0, 'bi-star-fill': grad >= 1}" (mouseover)="flag ? grad=1 : false" (mouseout)="flag ? grad=0 : false" (click)="grade(1)"></i> 
+            <i class="star bi" [ngClass]="{'bi-star': grad <= 1, 'bi-star-fill': grad >= 2}" (mouseover)="flag ? grad=2 : false" (mouseout)="flag ? grad=0 : false" (click)="grade(2)"></i> 
+            <i class="star bi" [ngClass]="{'bi-star': grad <= 2, 'bi-star-fill': grad >= 3}" (mouseover)="flag ? grad=3 : false" (mouseout)="flag ? grad=0 : false" (click)="grade(3)"></i> 
+            <i class="star bi" [ngClass]="{'bi-star': grad <= 3, 'bi-star-fill': grad >= 4}" (mouseover)="flag ? grad=4 : false" (mouseout)="flag ? grad=0 : false" (click)="grade(4)"></i> 
+            <i class="star bi" [ngClass]="{'bi-star': grad <= 4, 'bi-star-fill': grad == 5}"
+            (mouseover)="flag ? grad=5 : false" (mouseout)="flag ? grad=0 : false" (click)="grade(5)"></i> 
+        </strong>
+      </span>
+</div>

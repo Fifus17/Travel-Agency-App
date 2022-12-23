@@ -1,0 +1,55 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Add Trip
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10000" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Trip</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="title" class="visually-hidden">Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Title">
+                </div>
+                <div class="col-md-6">
+                    <label for="country" class="visually-hidden">Country</label>
+                    <input type="text" class="form-control" id="Country" placeholder="Country">
+                </div>
+                <div class="col-md-6">
+                    <label for="dateOut" class="visually-hidden">Date out</label>
+                    <input type="date" class="form-control" id="dateOut" placeholder="Date out">
+                </div>
+                <div class="col-md-6">
+                    <label for="dateIn" class="visually-hidden">Date in</label>
+                    <input type="date" class="form-control" id="dateIn" placeholder="Date in">
+                </div>
+                <div class="col-md-6">
+                    <label for="places" class="visually-hidden">Number of places</label>
+                    <input type="text" class="form-control" id="places" placeholder="Number of places">
+                </div>
+                <div class="col-md-6">
+                    <label for="price" class="visually-hidden">Price</label>
+                    <input type="text" class="form-control" id="price" placeholder="Price">
+                </div>
+                <div class="col-md-12">
+                    <label for="img" class="visually-hidden">Image link</label>
+                    <input type="text" class="form-control" id="img" placeholder="Image link">
+                </div>
+                <div class="col-md-12">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>

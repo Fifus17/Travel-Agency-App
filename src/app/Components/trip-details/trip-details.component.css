@@ -1,0 +1,124 @@
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}
+
+.carousel {
+    width: 60%;
+    left: 20%;
+    margin-bottom: 10px;
+}
+
+#title-country {
+    margin-left: 5%;
+    margin-bottom: 3px;
+}
+
+#date {
+    margin-left: 5%;
+    
+}
+
+#description {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.sign-button {
+    /* position: absolute; */
+    height: 1.7em;
+    width: 1.7em;
+    padding: 0px;
+    /* bottom: 12%; */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.adding {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter {
+    font-size: 1.2em;
+    margin-bottom: 0px;
+}
+
+.btn-grad {
+    background-color: #0093E9;
+    background-image: linear-gradient(315deg, #0093E9 0%, #80D0C7 56%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    /* box-shadow: 0 0 20px #eee; */
+    display: block;
+    border: 0px;
+    padding: 2px 6px;
+  }
+
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+.btn-grad:active {
+    background-position: left center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.modal-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.price {
+    margin-bottom: 0px;
+    margin-right: 15px;
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.badge {
+    margin-left: 10px;
+    /* padding: 3px 5px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 2em;
+}
+
+.badge strong {
+    font-size: 1.5em;
+}
+
+.reviews-text {
+    margin-left: 5%;
+    margin-top: 25px;
+}
+
+@media screen and (max-width: 1200px) {
+    .carousel {
+        width: 90%;
+        left: 5%;
+    }
+    
+}

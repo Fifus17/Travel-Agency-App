@@ -1,0 +1,91 @@
+.card {
+    width: 330px;
+    height: 350px;
+    margin-left: 5%;
+    margin: 15px 0px 15px 5%;
+}
+
+.card img {
+    overflow: hidden;
+    object-fit: cover;
+    width: 100%;
+    height: 50%;
+}
+
+p, h2 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.title {
+    margin-bottom: 0px;
+}
+
+.name {
+    width: 90%;
+    display: flex;
+    /* justify-content: space-between; */
+    padding: 0px;
+    margin-top: 5px;
+    margin-left: 22px;
+}
+
+.country {
+    opacity: 0.8;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 12px;
+}
+
+.date {
+    font-size: 0.9em;
+    margin-left: 22px;
+}
+
+.price {
+    margin-bottom: 0px;    
+}
+
+.sign-button {
+    /* position: absolute; */
+    height: 1.7em;
+    width: 1.7em;
+    padding: 0px;
+    /* bottom: 12%; */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px;
+    padding-top: 0px;
+}
+
+.info {
+    margin: 0px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.status {
+    background-color: #0093E9;
+    padding: 3px 5px;
+    height: 1.5em; 
+    margin-top: 0.8em; 
+    margin-left: 0.3em;
+}
+
+.bought {
+    font-size: 0.9em;
+}

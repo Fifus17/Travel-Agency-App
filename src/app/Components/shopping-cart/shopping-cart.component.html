@@ -1,0 +1,31 @@
+
+<button class="btn btn-grad" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas" style="position: relative; margin: 12px;">
+    <i class="bi bi-cart"></i>
+    <span class="position-absolute translate-middle badge rounded-pill" [ngClass]="{'bg-danger': itemsCounter <= 10, 'bg-success': itemsCounter > 10}" style="left: 0%; top: 0%;">
+       {{itemsCounter}}
+    </span>
+</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Your cart</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body">
+    <!-- Your cart is empty -->
+    <div *ngFor="let thisdata of currentData">
+    <app-shopping-cart-card [data]="tripsData[thisdata.id]" [currentData]="thisdata"></app-shopping-cart-card>
+    </div>
+    
+</div>
+<div class="offcanvas-footer">
+    <div class="nav sticky-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <h5 class="total">Total: {{currentPrice}}$</h5>
+                <div class="btn btn-grad checkout">Checkout</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

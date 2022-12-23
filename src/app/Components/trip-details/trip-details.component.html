@@ -1,0 +1,83 @@
+<!-- Button trigger modal -->
+
+<button type="button" class="btn btn-grad" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <i class="bi bi-info-lg"></i>
+    <!-- Details -->
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal modal-xl fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="10000" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">{{data.title}}, {{data.country}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+            <!-- Carousel -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img [src]="data.image" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img [src]="data.image" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img [src]="data.image" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <!-- End of carousel -->
+            <div class="name">
+              <h1 id="title-country">{{data.title}}, {{data.country}}</h1>
+            </div>
+            <h5 id="date">{{data.dayOut}} - {{data.dayIn}}</h5>
+            <p id="description">
+            {{data.description}}}
+            </p>
+
+            <div class="current-stars">
+              <app-overall-review></app-overall-review>
+            </div>
+            <div class="comments-section"><h3 class="reviews-text">Reviews</h3></div>
+            <div class="comment-form">
+              <app-comment-form></app-comment-form>
+            </div>
+          <div class="comments-container">
+            <!-- ngFor po komponentach comment -->
+            <app-comment></app-comment>
+            <app-comment></app-comment>
+            <app-comment></app-comment>
+          </div>
+            
+        </div>
+
+        <div class="modal-footer">
+          <div class="adding">
+            <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button" (click)="removePlace()">-</button>
+            <h6 class="counter">{{counter}}</h6>
+            <button type="button" class="btn btn-grad plus-button sign-button" id="plus-button" (click)="addPlace()">+</button>
+          </div>
+          <div class="checkout">
+            <h3 class="price">{{data.price}}$</h3>
+            <button type="button" class="btn btn-grad">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

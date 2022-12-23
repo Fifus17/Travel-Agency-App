@@ -1,0 +1,85 @@
+.card {
+    width: 90%;
+    margin-left: 5%;
+    height: 200px;
+    position: relative;
+}
+
+.overall-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-weight: 100;
+    margin: 0px;
+    font-size: 5rem;
+}
+
+.star {
+    color: #FFD700;
+    font-size: 1.3rem;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.detailed-rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -50%);
+}
+
+.stars {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.progress {
+    width: 380px;
+}
+
+.progressbar {
+    width: 80%;
+}
+
+.progress-bar {
+    width: 50%;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .progress {
+        width: 250px;
+    }
+    
+}
+
+@media screen and (max-width: 992px) {
+
+    .progress {
+        width: 150px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+}

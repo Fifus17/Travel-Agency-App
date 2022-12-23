@@ -1,0 +1,36 @@
+button {
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    border: none;
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+}
+
+button i {
+    font-size: 1.5rem;
+}
+
+.navbar-nav {
+    padding-top: 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item i {
+    font-size: 2.3rem;
+    margin-right: 10px;
+}
+
+.nav-link {
+    font-size: 2rem;
+}
+
+#mainNav {
+    width: 350px;
+}

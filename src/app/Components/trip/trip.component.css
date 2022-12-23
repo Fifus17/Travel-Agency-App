@@ -1,0 +1,114 @@
+/* :root {
+    --width: 20em;
+    --height: 30em;
+} */
+
+
+
+.card {
+    height: 40em;
+    width: 20em;
+    margin: 25px;
+    position: relative;
+}
+
+.card-title {
+    margin-bottom: 0px;
+}
+
+.card img {
+    height: 180px;
+    width: 180px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    right: 50%;
+    transform: translate(50%, 0%);
+}
+
+.country {
+    position: absolute;
+    top: 38%;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.description {
+    position: absolute;
+    top: 52.5%;
+    font-size: 1em;
+    font-weight: 400;
+    padding-right: 16px;
+}
+
+.date {
+    position: absolute;
+    top: 42.5%;
+    font-weight: 400;
+    font-size: 1.1em;
+}
+
+.places {
+    position: absolute;
+    top: 48%;
+    font-weight: 500;
+}
+
+.sign-button {
+    position: absolute;
+    height: 1.7em;
+    width: 1.7em;
+    padding: 0px;
+    bottom: 12%;
+}
+
+.plus-button {
+    right: 33.5%;
+}
+
+.minus-button {
+    left: 33.5%;
+}
+
+.progress {
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    bottom: 7%;
+}
+
+.counter {
+    position: absolute;
+    left: 50%;
+    bottom: 12%;
+    transform: translate(-50%, 25%);
+    font-size: 1.2em;
+}
+
+.price {
+    font-size: 1.8em;
+}
+
+hr {
+    position: absolute;
+    top: 49.5%;
+    width: 90%;
+}
+
+.card:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+}
+
+.grading {
+    opacity: 0;
+}
+
+.card:hover .grading {
+    opacity: 1;
+}
+
+.star {
+    cursor: pointer;
+}

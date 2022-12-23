@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="photo-section">
+        <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg" alt="person-photo">
+        <!-- <h5 class="nickname">Guest</h5> -->
+            <div class="input-group flex-nowrap">
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" id="nick">
+              </div>
+        <div class="stars-container">
+            <strong>
+                <i class="star bi" [ngClass]="{'bi-star': grad == 0, 'bi-star-fill': grad >= 1}" (mouseover)="flag ? grad=1 : false" (mouseout)="flag ? grad=0 : false" (click)="grade(1)"></i> 
+                <i class="star bi" [ngClass]="{'bi-star': grad <= 1, 'bi-star-fill': grad >= 2}" (mouseover)="flag ? grad=2 : false" (mouseout)="flag ? grad=0 : false" (click)="grade(2)"></i> 
+                <i class="star bi" [ngClass]="{'bi-star': grad <= 2, 'bi-star-fill': grad >= 3}" (mouseover)="flag ? grad=3 : false" (mouseout)="flag ? grad=0 : false" (click)="grade(3)"></i> 
+                <i class="star bi" [ngClass]="{'bi-star': grad <= 3, 'bi-star-fill': grad >= 4}" (mouseover)="flag ? grad=4 : false" (mouseout)="flag ? grad=0 : false" (click)="grade(4)"></i> 
+                <i class="star bi" [ngClass]="{'bi-star': grad <= 4, 'bi-star-fill': grad == 5}"
+                (mouseover)="flag ? grad=5 : false" (mouseout)="flag ? grad=0 : false" (click)="grade(5)"></i> 
+            </strong>
+        </div>
+        <!-- <div class="date-container">
+            20.09.2022
+        </div> -->
+    </div>
+    <div class="text-container">
+        <h5 class="title">Safari, Kenya</h5>
+        <div class="mb-5">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+          </div>
+    </div>
+    <div class="button-container">
+        <button type="button" class="btn btn-grad">Add</button>
+</div>

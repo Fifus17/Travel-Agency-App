@@ -1,0 +1,9 @@
+.modal-backdrop {
+    z-index: -1;
+    --bs-backdrop-zindex: -1;
+}
+
+.modal {
+    z-index: 10000;
+}
+

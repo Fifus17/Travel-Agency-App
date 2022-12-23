@@ -1,0 +1,66 @@
+.nav {
+    width: 100%;
+    height: 60px;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+.checkout {
+    width: 30%;
+    height: 40px;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.total {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.offcanvas-header {
+    box-shadow: 0 3px 5px rgba(182, 182, 182, 0.75);
+}
+
+.offcanvas-footer {
+    box-shadow: 8px 0 5px rgba(182, 182, 182, 0.75);
+}
+
+         
+.btn-grad {
+    background-color: #0093E9;
+    background-image: linear-gradient(315deg, #0093E9 0%, #80D0C7 56%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .btn-grad:active {
+    background-position: left center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+ 

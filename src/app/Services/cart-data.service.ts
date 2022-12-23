@@ -31,4 +31,8 @@ export class CartDataService {
     return this.cartData;
   }
 
+  addTripToCart(trip: Trip) {
+    this.cartData.push(trip);
+  }
+
 }

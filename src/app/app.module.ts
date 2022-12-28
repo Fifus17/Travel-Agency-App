@@ -36,6 +36,7 @@ import { LogOutButtonComponent } from './Components/log-out-button/log-out-butto
 import { LoginViewComponent } from './Components/login-view/login-view.component';
 import { RegisterViewComponent } from './Components/register-view/register-view.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { CartComponent } from './Components/cart/cart.component';
     LoginViewComponent,
     RegisterViewComponent,
     CartComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

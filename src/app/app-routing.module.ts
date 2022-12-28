@@ -10,6 +10,7 @@ import { LoginViewComponent } from './Components/login-view/login-view.component
 import { RegisterViewComponent } from './Components/register-view/register-view.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', component: MainScreenComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'history', component: HistoryComponent},
   { path: 'cart', component: ShoppingCartComponent},
   { path: 'login', component: LoginViewComponent},
-  { path: 'register', component: RegisterViewComponent}
+  { path: 'register', component: RegisterViewComponent},
+  { path: "**", component: PageNotFoundComponent}
 ];
 
 @NgModule({

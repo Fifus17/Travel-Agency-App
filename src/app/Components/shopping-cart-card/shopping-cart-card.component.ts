@@ -8,7 +8,7 @@ import { CartDataService } from 'src/app/Services/cart-data.service';
 })
 export class ShoppingCartCardComponent implements OnInit {
 
-  @Input('data') data: any;
+  data: any;
   @Input('index') index: number = -1;
   passingData: any;
   changedData: any;
@@ -24,6 +24,7 @@ export class ShoppingCartCardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.data = this.dataService.getBasketData()[this.index];
     this.passingData = this.data;
     this.counter = this.data.places;
     this.maxPlaces = this.data.places;

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import * as tripsData from '../../Data/tripsData.json';
 
 import { CartDataService } from '../../Services/cart-data.service';
 import { Trip } from '../../Interfaces/ITrip';
-import { Subscription } from 'rxjs';
 
 
 @Component({

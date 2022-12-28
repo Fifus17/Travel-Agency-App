@@ -13,7 +13,7 @@ export class TripsComponent {
 
   constructor() { 
     this.tripsData = tripsData;
-    // console.log(this.tripsData["0"]);
+    console.log(this.tripsData[0]);
   }
 
 }

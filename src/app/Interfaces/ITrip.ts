@@ -7,8 +7,8 @@ export interface Trip {
     description: string;
     price: number;
     image: string;
-    outDate: string;
-    inDate: string;
+    dayOut: string;
+    dayIn: string;
     places: number;
     reviews: Review[];
 }

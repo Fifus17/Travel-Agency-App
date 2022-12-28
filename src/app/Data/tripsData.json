@@ -1,6 +1,6 @@
 [
     {
-        "id": "0",
+        "id": 0,
         "title": "Bochnia",
         "country": "Poland",
         "dayOut": "2019-08-01",
@@ -14,7 +14,7 @@
         "avgRating": 4.5
     },
     {
-        "id": "1",
+        "id": 1,
         "title": "Hawaii Paradise",
         "country": "Hawaii",
         "dayOut": "2021-08-01",
@@ -28,6 +28,7 @@
         "avgRating": 5.0
     },
     {
+        "id": 2,
         "title": "Mount Everest",
         "country": "Nepal",
         "dayOut": "2022-08-01",
@@ -41,6 +42,7 @@
         "avgRating": 3.5
     },
     {
+        "id": 3,
         "title": "Honolulu",
         "country": "Hawaii",
         "dayOut": "2022-08-01",
@@ -54,6 +56,7 @@
         "avgRating": 5.0
     },
     {
+        "id": 4,
         "title": "Safari",
         "country": "Kenya",
         "dayOut": "2022-08-01",
@@ -67,6 +70,7 @@
         "avgRating": 2.7
     },
     {
+        "id": 5,
         "title": "Cape Town",
         "country": "South Africa",
         "dayOut": "2022-08-01",
@@ -80,6 +84,7 @@
         "avgRating": 3.2
     },
     {
+        "id": 6,
         "title": "New York",
         "country": "USA",
         "dayOut": "2022-08-01",
@@ -93,6 +98,7 @@
         "avgRating": 4.8
     },
     {
+        "id": 7,
         "title": "Colorful Carnival",
         "country": "Rio de Janeiro",
         "dayOut": "2022-08-01",
@@ -106,6 +112,7 @@
         "avgRating": 3.6
     },
     {
+        "id": 8,
         "title": "Sydney",
         "country": "Australia",
         "dayOut": "2022-08-01",
@@ -119,6 +126,7 @@
         "avgRating": 3.5
     },
     {
+        "id": 9,
         "title": "Menton",
         "country": "France",
         "dayOut": "2022-08-01",

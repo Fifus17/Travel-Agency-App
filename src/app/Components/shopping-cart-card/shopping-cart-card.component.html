@@ -14,10 +14,10 @@
             </strong>
         </span>
     </div>
-    <p class="date">{{data.outDate}} - {{data.inDate}}</p>
+    <p class="date">{{data.dayOut}} - {{data.dayIn}}</p>
     <button type="button" class="btn btn-grad plus-button sign-button" id="plus-button" [disabled]="this.counter == this.maxPlaces" (click)="addPlace()">+</button>
     <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button" [disabled]="this.counter == 0" (click)="removePlace()">-</button>
-    <h6 class="counter">{{counter}}</h6>
-    <h5 class="price">${{currentPrice}}</h5>
+    <h6 class="counter">{{data.places}}</h6>
+    <h5 class="price">${{data.price * data.places}}</h5>
 </div>
 

@@ -33,6 +33,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 import { LoginRegisterButtonsComponent } from './Components/login-register-buttons/login-register-buttons.component';
 import { LogOutButtonComponent } from './Components/log-out-button/log-out-button.component';
+import { LoginViewComponent } from './Components/login-view/login-view.component';
+import { RegisterViewComponent } from './Components/register-view/register-view.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { LogOutButtonComponent } from './Components/log-out-button/log-out-butto
     PlaceholderTripCardComponent,
     LoginRegisterButtonsComponent,
     LogOutButtonComponent,
+    LoginViewComponent,
+    RegisterViewComponent,
   ],
   imports: [
     BrowserModule,

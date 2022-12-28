@@ -1,7 +1,7 @@
 <body>
     <div class="row g-3">
         <div class="col-md-3" *ngFor="let dataKey of dataKeys; index as idx">
-            <app-trip2 [data]="tripsData[dataKey]"></app-trip2>
+            <app-trip2 [data]="tripsData[dataKey]"[index]="idx"></app-trip2>
         </div>
     </div>
 </body>

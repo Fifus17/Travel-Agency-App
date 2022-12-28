@@ -28,14 +28,15 @@ export class Trip2Component {
   ngOnInit(): void {
     this.cartData = this.serviceData.getBasketData();
     this.maxPlaces = this.data.places;
-    if(this.cartData.filter((trip: Trip) => trip.id = this.data.id).length > 0) {
-      this.counter = this.cartData.filter((trip: Trip) => trip.id = this.data.id)[0].places;
+    if(this.cartData.filter((trip: Trip) => trip.id = this.idx).length > 0) {
+      this.counter = this.cartData.filter((trip: Trip) => trip.id = this.idx)[0].places;
     }
   }
 
   addPlace(): void {
     // this.places--;
     console.log(this.data.id);
+    console.log(this.idx);
     if(this.counter < this.maxPlaces) {
       this.counter++;
       this.cartIndex = this.serviceData.addTripToCart(this.data);

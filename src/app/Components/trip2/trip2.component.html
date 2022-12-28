@@ -28,7 +28,7 @@
 </div> -->
 
 <div class="card">
-    <img [src]="data.image" class="card-img-top" alt="...">
+    <img [src]="data.image[0]" class="card-img-top" alt="...">
     <div class="name">
         <h3 class="title">{{data.title}}</h3>
         <span class="badge rounded-pill bg-warning" style="padding: 3px 8px; height: 1.5em; margin-top: 0.8em; margin-left: 0.3em;">
@@ -39,7 +39,7 @@
         </span>
     </div>
     <p class="date">{{data.dayOut}} - {{data.dayIn}}</p>
-    <app-trip-details class="info"></app-trip-details>
+    <app-trip-details class="info"></app-trip-details> <!-- TODO: add data injection-->
     <div class="footer">
         <div class="buttons">
             <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button" (click)="removePlace()">-</button>

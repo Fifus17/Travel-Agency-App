@@ -6,7 +6,7 @@ export interface Trip {
     country: string;
     description: string;
     price: number;
-    image: string;
+    image: string[];
     dayOut: string;
     dayIn: string;
     places: number;

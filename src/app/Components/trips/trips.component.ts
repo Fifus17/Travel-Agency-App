@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import * as tripsData from '../../Data/tripsData.json';
 import { Trip } from '../../Interfaces/ITrip';
 import { DatabaseConnectionService } from '../../Services/database-connection.service';
+import { CartDataService } from '../../Services/cart-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-trips',
@@ -10,12 +11,42 @@ import { DatabaseConnectionService } from '../../Services/database-connection.se
 })
 export class TripsComponent {
 
-  tripsData: any = [];
-  dataKeys = Object.keys(tripsData).slice(0, -2);
+  trips: any[] = [];
 
-  constructor(public db: DatabaseConnectionService)  { 
-    this.tripsData = tripsData;
-    console.log(this.tripsData[0]);
+  constructor(
+    public db: DatabaseConnectionService,
+    public cart: CartDataService
+    ) { }
+
+  tripsSubscription: Subscription | undefined;
+
+  ngOnInit(): void {
+    this.tripsSubscription = this.db.getTrips().subscribe((change) => {
+      this.trips = [];
+      // change.forEach((trip) => {
+      //   this.bagno.push(trip);
+      // });
+      for (let trip of change) {
+        this.trips.push({
+          id: trip.id,
+          title: trip.title,
+          country: trip.country,
+          dayOut: trip.dayOut,
+          dayIn: trip.dayIn,
+          price: trip.price,
+          places: trip.places,
+          image: trip.image,
+          description: trip.description,
+          reviews: trip.reviews,
+        } as Trip);
+      }
+    });
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(console.log(this.trips)
+        );
+      }, 3000);
+    });
   }
 
 }

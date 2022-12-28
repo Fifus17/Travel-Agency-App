@@ -35,6 +35,7 @@ import { LoginRegisterButtonsComponent } from './Components/login-register-butto
 import { LogOutButtonComponent } from './Components/log-out-button/log-out-button.component';
 import { LoginViewComponent } from './Components/login-view/login-view.component';
 import { RegisterViewComponent } from './Components/register-view/register-view.component';
+import { CartComponent } from './Components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { RegisterViewComponent } from './Components/register-view/register-view.
     LogOutButtonComponent,
     LoginViewComponent,
     RegisterViewComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

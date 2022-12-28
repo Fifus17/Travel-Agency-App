@@ -6,6 +6,7 @@ export const environment = {
   firebaseConfig: {
     apiKey: "AIzaSyDuekJ8EvdJB4Hpj9sNGLGkWYL0ofJkqxA",
     authDomain: "drip-trip-c1c9c.firebaseapp.com",
+    databaseURL: "https://drip-trip-c1c9c-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "drip-trip-c1c9c",
     storageBucket: "drip-trip-c1c9c.appspot.com",
     messagingSenderId: "691297381529",

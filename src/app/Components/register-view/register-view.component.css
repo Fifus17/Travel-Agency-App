@@ -1,0 +1,51 @@
+body {
+    height: 92.7vh;
+    width: 100%;
+    margin: 0px;
+    margin-right: 0px;
+    padding: 0px;
+    background-color: #fff;
+    background-image: linear-gradient(0deg, #80D0C7 0%, #ffffff 100%);
+}
+
+.login {
+    width: 576px;
+    height: 260px;
+    left: 30%;
+    top: 20%;
+}
+
+.forms {
+    margin: 25px;
+}
+
+.btn-grad {
+    background-color: #0093E9;
+    background-image: linear-gradient(315deg, #0093E9 0%, #80D0C7 56%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    display: block;
+    border: 0px;
+    width: 20%;
+    margin-left: 40%;
+}
+
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-grad:active {
+    background-position: left center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.col {
+    margin-bottom: 20px;
+}

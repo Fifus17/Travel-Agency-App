@@ -38,12 +38,29 @@ export class AuthenticationService {
       .catch((error) => {window.alert(error.message)});})
   }
 
-  async signUp(email: string, password: string) {
+  async signUp(email: string, password: string, firstName: string, lastName: string) {
     return await this.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        let userData = new User(result.user);
+        if(result.user != null) {
+        let userData = {
+          uid: result.user.uid,
+          email: email,
+          firstName: firstName,
+          lastName: lastName,
+          roles: {
+            guest: true,
+            client: true,
+            admin: false,
+            manager: false,
+            banned: false
+          },
+          history: [""],
+          cart: [""],
+          photoURL: ""
+        }
         this.db.addUser(userData);
         this.router.navigate(['home']);
+      }
       })
   }
 

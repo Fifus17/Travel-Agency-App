@@ -65,7 +65,7 @@ export class DatabaseConnectionService {
   }
 
   addUser(user: User): void {
-    this.db.list('users/' + user.uid).push(user);
+    this.db.list('users/').set(user.uid, user);
   }
 
   changeUserRoles(uid: string, roles: Roles): void {

@@ -19,7 +19,7 @@ export class LoginViewComponent {
     ]),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(6),
+      Validators.minLength(8),
     ]),
   });
 
@@ -31,7 +31,7 @@ export class LoginViewComponent {
     this.error = false;
     let email = this.loginForm.get('login')!.value;
     let pass = this.loginForm.get('password')!.value;
-    if(email != null && pass != null) this.auth.signIn(email, pass);
+    if(email != null && pass != null) this.auth.signIn(email, pass).catch((error) => {this.error = true});
     this.loginForm.reset();
   }
 

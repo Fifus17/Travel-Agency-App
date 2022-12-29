@@ -1,21 +1,22 @@
 <body>
     <div class="card login">
-        <div class="forms">
+        <form [formGroup]="registerForm" class="forms">
             <div class="row">
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                  <input type="text" class="form-control" placeholder="First name" aria-label="First name" formControlName="firstName">
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                  <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" formControlName="lastName">
                 </div>
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="E-mail" aria-label="E-mail">
+                <input type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" formControlName="email">
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Password" aria-label="Password">
+                <input type="password" class="form-control" placeholder="Password" aria-label="Password"
+                formControlName="password">
             </div>
-            <div class="btn btn-grad">Sign up</div>
-        </div>
+            <button class="btn btn-grad" (click)="submit()">Sign up</button>
+        </form>
     </div>
 </body>

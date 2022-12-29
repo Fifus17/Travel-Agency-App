@@ -38,6 +38,7 @@ import { RegisterViewComponent } from './Components/register-view/register-view.
 import { CartComponent } from './Components/cart/cart.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterViewComponent,
     CartComponent,
     PageNotFoundComponent,
+    AdminDashboardComponent,
   ],
   imports: [
     BrowserModule,

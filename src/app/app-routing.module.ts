@@ -11,6 +11,7 @@ import { RegisterViewComponent } from './Components/register-view/register-view.
 import { CartComponent } from './Components/cart/cart.component';
 import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: MainScreenComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'cart', component: ShoppingCartComponent},
   { path: 'login', component: LoginViewComponent},
   { path: 'register', component: RegisterViewComponent},
+  { path: 'admin', component: AdminDashboardComponent},
   { path: "**", component: PageNotFoundComponent}
 ];
 

@@ -1,0 +1,48 @@
+<body>
+    <div class="card">
+        <div class="card-header">Admin Dashboard</div>
+        <div class="card-body">
+            <!-- Templates -->
+            <ul class="list-group list-group-horizontal templates">
+                <li class="list-group-item flex-fill uid">UID</li>
+                <li class="list-group-item flex-fill email">E-mail</li>
+                <li class="list-group-item flex-fill roless">Roles</li>
+            </ul>
+            <!-- To populate -->
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item uid">0QADJSIQYZZWPgruCb7ZxTKF9PA3</li>
+                <li class="list-group-item email">user2@gmail.com</li>
+                <li class="list-group-item roles">
+                    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
+                    <label class="form-check-label stretched-link" for="firstCheckboxStretched">Admin</label>
+                </li>
+                <li class="list-group-item roles">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="secondCheckboxStretched">
+                    <label class="form-check-label stretched-link" for="secondCheckboxStretched">Manager</label>
+                </li>
+                <li class="list-group-item roles">
+                    <input class="form-check-input me-3" type="checkbox" value="" id="thirdCheckboxStretched">
+                    <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Banned</label>
+                </li>
+            </ul>
+
+            <ul class="list-group list-group-horizontal" *ngFor="let user of users">
+                <li class="list-group-item uid">{{user.uid}}</li>
+                <li class="list-group-item email">{{user.email}}</li>
+                <li class="list-group-item roles">
+                    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
+                    <label class="form-check-label stretched-link" for="firstCheckboxStretched">Admin</label>
+                </li>
+                <li class="list-group-item roles">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="secondCheckboxStretched">
+                    <label class="form-check-label stretched-link" for="secondCheckboxStretched">Manager</label>
+                </li>
+                <li class="list-group-item roles">
+                    <input class="form-check-input me-3" type="checkbox" value="" id="thirdCheckboxStretched">
+                    <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Banned</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>

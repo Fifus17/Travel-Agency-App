@@ -38,7 +38,7 @@
             <!-- For admin -->
             <li class="nav-item" *ngIf="authService.userRoles.admin">
                 <i class="bi bi-people"></i>
-                <a class="nav-link" href="#">Manage Users</a>
+                <a class="nav-link" href="/admin">Manage Users</a>
             </li>
             <!-- For manager and admin -->
             <li class="nav-item" *ngIf="authService.userRoles.admin || authService.userRoles.manager">

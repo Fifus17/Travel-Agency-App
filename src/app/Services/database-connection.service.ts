@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { first, firstValueFrom, Observable } from 'rxjs';
 import { Trip } from '../Interfaces/ITrip';
-import { User } from '../Interfaces/IUser';
+import { Roles, User } from '../Interfaces/IUser';
 
 @Injectable({
   providedIn: 'root'
@@ -56,8 +56,8 @@ export class DatabaseConnectionService {
     return this.nextId;
   }
 
-  getUsers(): Observable<any[]> {
-    return this.db.list<User>('users').valueChanges();
+  getUsers() {
+    return this.db.list<User>('users').snapshotChanges();
   }
 
   async getRoles(uid: string) {
@@ -68,7 +68,7 @@ export class DatabaseConnectionService {
     this.db.list('users/' + user.uid).push(user);
   }
 
-  changeUserRoles(uid: string, roles: string[]): void {
+  changeUserRoles(uid: string, roles: Roles): void {
     this.db.list('users/' + uid).update('roles', roles);
   }
 

@@ -40,4 +40,6 @@ button i {
    position: absolute; 
    left: 80px;
    top: 16px;
+   width: 250px;
+   overflow: scroll;
 }

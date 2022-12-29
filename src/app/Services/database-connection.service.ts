@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-import { first, Observable } from 'rxjs';
+import { first, firstValueFrom, Observable } from 'rxjs';
 import { Trip } from '../Interfaces/ITrip';
 import { User } from '../Interfaces/IUser';
 
@@ -58,6 +58,10 @@ export class DatabaseConnectionService {
 
   getUsers(): Observable<any[]> {
     return this.db.list<User>('users').valueChanges();
+  }
+
+  async getRoles(uid: string) {
+    return firstValueFrom(this.db.object('/users/' + uid + '/roles').valueChanges());
   }
 
   addUser(user: User): void {

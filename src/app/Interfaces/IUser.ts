@@ -13,6 +13,8 @@ export class User {
     lastName: string;
     photoURL: string;
     roles: Roles;
+    history: any[];
+    cart: any[];
 
     constructor(userData: any) {
         this.uid = userData.uid;
@@ -20,6 +22,8 @@ export class User {
         this.firstName = userData.firstName;
         this.lastName = userData.lastName;
         this.photoURL = userData.photoURL;
+        this.history = [];
+        this.cart = [];
         if(userData.roles != null) {
             this.roles = userData.roles;
         }

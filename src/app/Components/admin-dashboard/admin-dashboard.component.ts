@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/Interfaces/IUser';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
@@ -13,8 +14,13 @@ export class AdminDashboardComponent implements OnInit {
 
   users: User[] = [];
   subscription: Subscription | undefined;
+  form: FormGroup;
 
-  constructor(public auth: AuthenticationService, public db: DatabaseConnectionService) { }
+  constructor(public auth: AuthenticationService, public db: DatabaseConnectionService, fb: FormBuilder) {
+    this.form = fb.group({
+      selected:  new FormArray([])
+     });
+   }
 
   ngOnInit(): void {
     this.subscription = this.db.getUsers().subscribe((users) => {

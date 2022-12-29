@@ -9,39 +9,24 @@
                 <li class="list-group-item flex-fill roless">Roles</li>
             </ul>
             <!-- To populate -->
-            <ul class="list-group list-group-horizontal">
-                <li class="list-group-item uid">0QADJSIQYZZWPgruCb7ZxTKF9PA3</li>
-                <li class="list-group-item email">user2@gmail.com</li>
-                <li class="list-group-item roles">
-                    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
-                    <label class="form-check-label stretched-link" for="firstCheckboxStretched">Admin</label>
-                </li>
-                <li class="list-group-item roles">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="secondCheckboxStretched">
-                    <label class="form-check-label stretched-link" for="secondCheckboxStretched">Manager</label>
-                </li>
-                <li class="list-group-item roles">
-                    <input class="form-check-input me-3" type="checkbox" value="" id="thirdCheckboxStretched">
-                    <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Banned</label>
-                </li>
-            </ul>
-
+            <!-- <form [formGroup]="form" novalidate> -->
             <ul class="list-group list-group-horizontal" *ngFor="let user of users">
                 <li class="list-group-item uid">{{user.uid}}</li>
                 <li class="list-group-item email">{{user.email}}</li>
                 <li class="list-group-item roles">
-                    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
+                    <input class="form-check-input me-1" type="checkbox" role="switch" [checked]="user.roles.admin" id="firstCheckboxStretched">
                     <label class="form-check-label stretched-link" for="firstCheckboxStretched">Admin</label>
                 </li>
                 <li class="list-group-item roles">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="secondCheckboxStretched">
+                    <input class="form-check-input me-2" type="checkbox" [checked]="user.roles.manager" id="secondCheckboxStretched">
                     <label class="form-check-label stretched-link" for="secondCheckboxStretched">Manager</label>
                 </li>
                 <li class="list-group-item roles">
-                    <input class="form-check-input me-3" type="checkbox" value="" id="thirdCheckboxStretched">
+                    <input class="form-check-input me-3" type="checkbox" [checked]="user.roles.banned" id="thirdCheckboxStretched">
                     <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Banned</label>
                 </li>
             </ul>
+            <!-- </form> -->
         </div>
     </div>
 

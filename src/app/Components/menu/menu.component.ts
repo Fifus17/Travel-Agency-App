@@ -8,14 +8,9 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  userName: string = 'User';
-  user$ = this.auth.currentUser;
+  user$ = this.auth.authState;
 
-  constructor(private authService: AuthenticationService, private auth: AngularFireAuth) {
-  }
-
-  isLoggedIn() {
-    return this.authService.isLoggedIn();
+  constructor(public authService: AuthenticationService, private auth: AngularFireAuth) {
   }
 
 }

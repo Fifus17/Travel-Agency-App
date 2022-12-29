@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class NavigationBarComponent {
 
+  constructor(public auth: AuthenticationService) { }
+  
 }

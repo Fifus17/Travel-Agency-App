@@ -41,12 +41,6 @@ export class TripsComponent {
         } as Trip);
       }
     });
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(console.log(this.trips)
-        );
-      }, 3000);
-    });
   }
 
 }

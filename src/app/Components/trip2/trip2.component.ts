@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { CartDataService } from '../../Services/cart-data.service';
 import { Trip } from '../../Interfaces/ITrip';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
   selector: 'app-trip2',
@@ -20,7 +21,7 @@ export class Trip2Component {
   plusButton: any;
   cartIndex: number = -1;
 
-  constructor(private serviceData: CartDataService) {    
+  constructor(private serviceData: CartDataService, public auth: AuthenticationService) {    
     this.minusButton = document.getElementById("minus-button");
     this.plusButton = document.getElementById("plus-button");
   }

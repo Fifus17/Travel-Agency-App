@@ -14,7 +14,7 @@
                 <i class="bi bi-house"></i>
                 <a class="nav-link" aria-current="page" href="home">Home</a>
             </li>
-            <!-- For logged in -->
+            <!-- For everyone -->
             <li class="nav-item">
                 <i class="bi bi-airplane-engines"></i>
                 <a class="nav-link" href="/trips">Trips Catalog</a>
@@ -26,22 +26,22 @@
                 <a class="nav-link" href="/cart">Your cart</a>
             </li> -->
             <!-- For logged in -->
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="authService.userRoles.client">
                 <i class="bi bi-clock-history"></i>
                 <a class="nav-link" href="/history">Trip History</a>
             </li>
             <!-- For logged in -->
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="authService.userRoles.client">
                 <i class="bi bi-person"></i>
                 <a class="nav-link" href="#">Account</a>
             </li>
             <!-- For admin -->
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="authService.userRoles.admin">
                 <i class="bi bi-people"></i>
                 <a class="nav-link" href="#">Manage Users</a>
             </li>
             <!-- For manager and admin -->
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="authService.userRoles.admin || authService.userRoles.manager">
                 <i class="bi bi-gear"></i>
                 <a class="nav-link" href="#">Manage Trips</a>
             </li>
@@ -49,8 +49,8 @@
     </div>
     <div class="offcanvas-footer">
         <!-- When user is not logged in -->
-            <app-login-register-buttons *ngIf="!isLoggedIn()"></app-login-register-buttons> 
+            <app-login-register-buttons *ngIf="!authService.isLoggedIn()"></app-login-register-buttons> 
         <!-- When user is logged in -->
-            <app-log-out-button *ngIf="isLoggedIn()"></app-log-out-button>
+            <app-log-out-button *ngIf="authService.isLoggedIn()"></app-log-out-button>
     </div>
 </div>

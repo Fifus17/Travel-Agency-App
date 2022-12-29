@@ -5,7 +5,7 @@
       <img src="../../../assets/logo.png" alt="">
     </a>
     <!-- <app-login-button style="position: absolute; right: 60px;"></app-login-button> -->
-    <app-shopping-cart style="position: absolute; right: 0px"></app-shopping-cart>
-    <app-notifications style="position: absolute; right: 62px"></app-notifications>
+    <app-shopping-cart *ngIf="auth.isLoggedIn()" style="position: absolute; right: 0px"></app-shopping-cart>
+    <app-notifications *ngIf="auth.isLoggedIn()" style="position: absolute; right: 62px"></app-notifications>
   </div>
 </nav>

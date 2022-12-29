@@ -1,15 +1,15 @@
 <body>
     <div class="card login">
-        <div class="forms">
+        <form [formGroup]="loginForm" class="forms">
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">E-mail</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="E-mail">
-            </div>
-            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="login" id="formGroupExampleInput" placeholder="E-mail">
+
                 <label for="formGroupExampleInput2" class="form-label">Password</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Password">
+                <input type="password" class="form-control" formControlName="password" id="formGroupExampleInput2" placeholder="Password">
             </div>
-            <div class="btn btn-grad">Log in</div>
-        </div>
+        </form>
+        <button type="submit" class="btn btn-grad" (click)="submit()">Log in</button>
     </div>
+    <h1 *ngIf="error" class="error">Wrong credentials!</h1>
 </body>

@@ -15,8 +15,12 @@ body {
     top: 20%;
 }
 
+#formGroupExampleInput {
+    margin-bottom: 16px;
+}
+
 .forms {
-    margin: 25px;
+    margin: 15px;
 }
 
 .btn-grad {
@@ -44,4 +48,12 @@ body {
     background-position: left center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
+}
+
+.error {
+    color: white;
+    top: 60%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

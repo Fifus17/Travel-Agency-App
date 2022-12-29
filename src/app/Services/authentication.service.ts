@@ -33,7 +33,8 @@ export class AuthenticationService {
   async signIn(email: string, password: string) {
     await this.auth.setPersistence(this.persistance);
     return await this.auth.signInWithEmailAndPassword(email, password)
-      .then((result) => {this.router.navigate(['home']);})
+      .then((result) => {this.router.navigate(['home'])
+      .catch((error) => {window.alert(error.message)});})
   }
 
   async signUp(email: string, password: string) {
@@ -52,5 +53,9 @@ export class AuthenticationService {
 
   getCurrentUserData() {
     return this.auth.currentUser;
+  }
+
+  isLoggedIn() {
+    return this.userData != null;
   }
 }

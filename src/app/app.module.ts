@@ -37,6 +37,7 @@ import { LoginViewComponent } from './Components/login-view/login-view.component
 import { RegisterViewComponent } from './Components/register-view/register-view.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
     RouterModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

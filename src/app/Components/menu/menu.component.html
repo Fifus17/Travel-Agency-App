@@ -4,7 +4,7 @@
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="mainNav" aria-labelledby="mainNavLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="mainNavLabel">Hello, User</h5>
+        <h5 class="offcanvas-title" id="mainNavLabel" *ngIf="user$ | async as user">Hello, {{user.email}}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -49,8 +49,8 @@
     </div>
     <div class="offcanvas-footer">
         <!-- When user is not logged in -->
-            <app-login-register-buttons></app-login-register-buttons> 
+            <app-login-register-buttons *ngIf="!isLoggedIn()"></app-login-register-buttons> 
         <!-- When user is logged in -->
-            <!-- <app-log-out-button></app-log-out-button> -->
+            <app-log-out-button *ngIf="isLoggedIn()"></app-log-out-button>
     </div>
 </div>

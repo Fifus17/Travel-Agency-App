@@ -133,7 +133,7 @@ export class AuthenticationService {
   }
 
   async isAdmin() {
-    await new Promise(r => setTimeout(r, 500));
+    await new Promise(r => setTimeout(r, 1500));
     if (this.userRoles.admin) return true;
     else {
       this.router.navigate(['home']);
@@ -142,7 +142,7 @@ export class AuthenticationService {
   }
 
   async isManager() {
-    await new Promise(r => setTimeout(r, 500));
+    await new Promise(r => setTimeout(r, 1000));
     if (this.userRoles.manager) return true;
     else {
       this.router.navigate(['home']);
@@ -151,7 +151,7 @@ export class AuthenticationService {
   }
 
   async isClient() {
-    await new Promise(r => setTimeout(r, 500));
+    await new Promise(r => setTimeout(r, 1000));
     if (this.userRoles.client) return true;
     else {
       this.router.navigate(['home']);
@@ -160,7 +160,7 @@ export class AuthenticationService {
   }
 
   async isBanned() {
-    await new Promise(r => setTimeout(r, 500));
+    await new Promise(r => setTimeout(r, 1000));
     return this.userRoles.banned;
   }
 }

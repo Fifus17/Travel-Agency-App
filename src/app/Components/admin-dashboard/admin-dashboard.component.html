@@ -9,24 +9,24 @@
                 <li class="list-group-item flex-fill roless">Roles</li>
             </ul>
             <!-- To populate -->
-            <!-- <form [formGroup]="form" novalidate> -->
-            <ul class="list-group list-group-horizontal" *ngFor="let user of users">
+            <form [formGroup]="form" novalidate>
+            <ul class="list-group list-group-horizontal" *ngFor="let user of users; index as idx">
                 <li class="list-group-item uid">{{user.uid}}</li>
                 <li class="list-group-item email">{{user.email}}</li>
                 <li class="list-group-item roles">
-                    <input class="form-check-input me-1" type="checkbox" role="switch" [checked]="user.roles.admin" id="firstCheckboxStretched">
-                    <label class="form-check-label stretched-link" for="firstCheckboxStretched">Admin</label>
+                    <input class="admin" type="checkbox" role="switch" [checked]="user.roles.admin" [id]="idx" [value]="user.roles" (change)="onCheckboxChange($event)">
+                    Admin
                 </li>
                 <li class="list-group-item roles">
-                    <input class="form-check-input me-2" type="checkbox" [checked]="user.roles.manager" id="secondCheckboxStretched">
-                    <label class="form-check-label stretched-link" for="secondCheckboxStretched">Manager</label>
+                    <input class="manager" type="checkbox" [checked]="user.roles.manager" [id]="idx" [value]="user.roles" (change)="onCheckboxChange($event)">
+                    Manager
                 </li>
                 <li class="list-group-item roles">
-                    <input class="form-check-input me-3" type="checkbox" [checked]="user.roles.banned" id="thirdCheckboxStretched">
-                    <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Banned</label>
+                    <input class="banned" type="checkbox" [checked]="user.roles.banned" [id]="idx" [value]="user.roles" (change)="onCheckboxChange($event)">
+                    Banned
                 </li>
             </ul>
-            <!-- </form> -->
+            </form>
         </div>
     </div>
 

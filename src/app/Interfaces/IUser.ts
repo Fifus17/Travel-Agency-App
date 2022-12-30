@@ -1,4 +1,5 @@
 export interface Roles {
+    [x: string]: any;
     guest: boolean;
     client: boolean;
     admin: boolean;

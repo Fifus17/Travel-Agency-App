@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/Interfaces/IUser';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
@@ -15,6 +15,7 @@ export class AdminDashboardComponent implements OnInit {
   users: User[] = [];
   subscription: Subscription | undefined;
   form: FormGroup;
+  roles = [];
 
   constructor(public auth: AuthenticationService, public db: DatabaseConnectionService, fb: FormBuilder) {
     this.form = fb.group({
@@ -32,6 +33,13 @@ export class AdminDashboardComponent implements OnInit {
       }
       console.log(this.users);
     });
+  }
+
+  onCheckboxChange(e: any) {
+    const selected: FormArray = this.form.get('selected') as FormArray;
+    let roles = this.users[e.target.id].roles;
+    roles[e.target.className] = !roles[e.target.className];
+    this.db.changeUserRoles(this.users[e.target.id].uid, roles);
   }
 
 }

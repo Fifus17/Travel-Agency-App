@@ -9,7 +9,7 @@ import { DatabaseConnectionService } from './database-connection.service';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  userData: any;
+  userData: any = null;
   userRoles: Roles = {
     guest: true,
     client: false,
@@ -19,16 +19,31 @@ export class AuthenticationService {
   }
   persistance: string = 'local';
 
-  constructor(private auth: AngularFireAuth, private db: DatabaseConnectionService ,private router: Router) {
-    this.auth.authState.subscribe(async user => {
-      if (user) {
-        this.userData = user;
-        const roles = await this.db.getRoles(user.uid);
+  constructor(private auth: AngularFireAuth, private db: DatabaseConnectionService, private router: Router) {
+    auth.authState.subscribe(async (ev: any) => {
+      // console.log(this.userRoles);
+      // console.log(this.isLoggedIn());
+      // console.log(this.userData);
+      // console.log(' ');
+      if (ev) {
+        this.userData = ev;
+        const roles = await this.db.getRoles(ev?.uid);
         this.userRoles = roles as Roles;
       } else {
         this.userData = null;
+        this.userRoles = {
+          guest: true,
+          admin: false,
+          manager: false,
+          client: false,
+          banned: false,
+        };
       }
-    })
+      // console.log(this.userRoles);
+      // console.log(this.isLoggedIn());
+      // console.log(this.userData);
+      // console.log(' ');
+    });
    }
 
   async signIn(email: string, password: string) {
@@ -70,8 +85,30 @@ export class AuthenticationService {
     this.router.navigate(['home']);
   }
 
-  getCurrentUserData() {
-    return this.auth.currentUser;
+  getCurrentUserUID(): Observable<User> {
+    // return this.auth.currentUser;
+    // return this.userData;
+    let currentUserData: User;
+    this.auth.onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        let data = this.db.getUsers().subscribe((users) => {
+            for (let data of users) {
+              if(data.payload.key == user.uid) {
+              let userToAdd = new User(data.payload.val());
+              userToAdd.uid = data.payload.key || 'undefined';
+              currentUserData = userToAdd;
+              }
+            }
+            // console.log(currentUserData);
+          });
+        return(currentUserData);
+      } else {
+        // User not logged in or has just logged out.
+        return(null);
+      }
+    });
+    return this.userData;
   }
 
   getAuthenticated(): Observable<any> {
@@ -80,5 +117,50 @@ export class AuthenticationService {
 
   isLoggedIn() {
     return this.userData != null;
+  }
+
+  isLoggednInWithRedirect() {
+    if (this.userData != null) return true;
+    else {
+      this.router.navigate(['home']);
+      return false;
+    }
+  }
+
+  getUID(): string {
+    // await new Promise(r => setTimeout(r, 500));
+    return this.userData.uid;
+  }
+
+  async isAdmin() {
+    await new Promise(r => setTimeout(r, 500));
+    if (this.userRoles.admin) return true;
+    else {
+      this.router.navigate(['home']);
+      return false;
+    }
+  }
+
+  async isManager() {
+    await new Promise(r => setTimeout(r, 500));
+    if (this.userRoles.manager) return true;
+    else {
+      this.router.navigate(['home']);
+      return false;
+    }
+  }
+
+  async isClient() {
+    await new Promise(r => setTimeout(r, 500));
+    if (this.userRoles.client) return true;
+    else {
+      this.router.navigate(['home']);
+      return false;
+    }
+  }
+
+  async isBanned() {
+    await new Promise(r => setTimeout(r, 500));
+    return this.userRoles.banned;
   }
 }

@@ -39,6 +39,7 @@ import { CartComponent } from './Components/cart/cart.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { ManageTripsComponent } from './Components/manage-trips/manage-trips.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
     CartComponent,
     PageNotFoundComponent,
     AdminDashboardComponent,
+    ManageTripsComponent,
   ],
   imports: [
     BrowserModule,

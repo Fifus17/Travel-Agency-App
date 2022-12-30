@@ -75,4 +75,8 @@ export class DatabaseConnectionService {
   getOrderHistory(uid: string): Observable<any[]> {
     return this.db.list('users/' + uid + '/orders').valueChanges();
   }
+
+  getCart(uid: string): Observable<any[]> {
+    return this.db.list('users/' + uid + '/cart').valueChanges();
+  }
 }

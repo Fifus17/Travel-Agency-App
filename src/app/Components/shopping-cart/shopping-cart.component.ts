@@ -29,8 +29,7 @@ export class ShoppingCartComponent {
     //   console.log(this.cart);
     // });
     // this.check();
-    this.cart$ = this.data.cart;
-    console.log(this.cart$);
+    this.cart = this.data.cart;
   }
 
 

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Trip } from 'src/app/Interfaces/ITrip';
 import { CartDataService } from 'src/app/Services/cart-data.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { CartDataService } from 'src/app/Services/cart-data.service';
 export class ShoppingCartCardComponent implements OnInit {
 
   data: any;
-  @Input('index') index: number = -1;
+  @Input('index') index: number = 0;
   passingData: any;
   changedData: any;
   counter: number = 0;
@@ -24,7 +25,7 @@ export class ShoppingCartCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.data = this.dataService.getBasketData()[this.index];
+    this.data = this.dataService.getBasketData()[this.index];
     this.passingData = this.data;
     this.counter = this.data.places;
     this.maxPlaces = this.data.places;

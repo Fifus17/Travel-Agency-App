@@ -6,28 +6,28 @@
         </div>
         <div class="card-body">
             <ul class="list-group list-group-horizontal">
-                <li class="list-group-item flex-fill id">
+                <li class="list-group-item flex-fill id template">
                     ID
                 </li>
-                <li class="list-group-item flex-fill name">
+                <li class="list-group-item flex-fill name template">
                     Name
                 </li>
-                <li class="list-group-item flex-fill manage">
+                <li class="list-group-item flex-fill manage template">
                     Manage
                 </li>
             </ul>
-            <ul class="list-group list-group-horizontal">
+            <ul class="list-group list-group-horizontal" *ngFor="let trip of trips">
                 <li class="list-group-item flex-fill id">
-                    0
+                    {{trip.id}}
                 </li>
                 <li class="list-group-item flex-fill name">
-                    Bochnia
+                    {{trip.title}}, {{trip.country}}
                 </li>
                 <li class="list-group-item flex-fill button">
-                    <app-edit-modal></app-edit-modal>
+                    <app-edit-modal [id]="trip.id"></app-edit-modal>
                 </li>
                 <li class="list-group-item flex-fill button">
-                    <div class="btn btn-danger">Remove trip</div>
+                    <button class="btn btn-danger" (click)="remove(trip.id)">Remove trip</button>
                 </li>
             </ul>
         </div>

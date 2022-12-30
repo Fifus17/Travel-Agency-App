@@ -27,7 +27,7 @@ export class DatabaseConnectionService {
   }
 
   addTrip(trip: Trip): void {
-    this.db.list('trips').push(trip);
+    this.db.list('trips').set(trip.id.toString(), trip);
   }
 
   removeTrip(idx: number): void {
@@ -78,5 +78,9 @@ export class DatabaseConnectionService {
 
   getCart(uid: string): Observable<any[]> {
     return this.db.list('users/' + uid + '/cart').valueChanges();
+  }
+
+  getLastTripId(): Observable<any> {
+    return this.db.list('trips', (ref) => ref.orderByChild('id').limitToLast(1)).valueChanges();
   }
 }

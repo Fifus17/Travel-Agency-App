@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { withDisabledInitialNavigation } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Trip } from '../Interfaces/ITrip';
 import { AuthenticationService } from './authentication.service';
 import { DatabaseConnectionService } from './database-connection.service';
@@ -9,14 +11,32 @@ import { DatabaseConnectionService } from './database-connection.service';
 })
 export class CartDataService {
 
-  cartData: Trip[] = [];
+  cartData: any[] = [];
+  cartSubsciption: Subscription | undefined;
+  tripData: Trip[] = [];
+  tripSubscription: Subscription | undefined;
+  cart: Trip[] = [];
 
-  constructor(public db: DatabaseConnectionService, private auth: AuthenticationService) { 
-    // if(this.auth.isLoggedIn()) {
-    //   this.auth.getCurrentUserUID().subscribe((data) => {
-    //     this.cartData = this.db.getCart(data);
-    //   });
-    // }
+  constructor(public db: DatabaseConnectionService, private auth: AuthenticationService, afauth: AngularFireAuth) { 
+    afauth.authState.subscribe((data) => {
+      if(data == null) return;
+      const uid = data?.uid;
+      this.tripSubscription = this.db.getTrips().subscribe((data) => {
+        this.tripData = data;
+        console.log(this.tripData);
+        this.cartSubsciption = this.db.getCart(uid).subscribe((data) => {
+          this.cartData = data;
+          console.log(this.cartData);
+          for(let i in this.cartData)
+          {
+            let tripToAdd = this.tripData.filter((trip) => trip.id == this.cartData[i].id)[0];
+            tripToAdd.places = this.cartData[i].places;
+            this.cart.push(tripToAdd);
+          }
+          console.log(this.cart);
+        });
+      });
+    });
   }
 
 

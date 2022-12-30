@@ -14,6 +14,7 @@ import { ManageTripsComponent } from './Components/manage-trips/manage-trips.com
 import { ManagerGuard } from './Authentication Guards/manager.guard';
 import { ClientGuard } from './Authentication Guards/client.guard';
 import { LoggedGuard } from './Authentication Guards/logged.guard';
+import { MasterGuard } from './Authentication Guards/master.guard';
 
 const routes: Routes = [
   { path: '', component: MainScreenComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'login', component: LoginViewComponent},
   { path: 'register', component: RegisterViewComponent},
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AdminGuard]},
-  { path: 'manager', component: ManageTripsComponent, canActivate: [AdminGuard, ManagerGuard]},
+  { path: 'manager', component: ManageTripsComponent, canActivate: [MasterGuard]},
   { path: "**", component: PageNotFoundComponent}
 ];
 

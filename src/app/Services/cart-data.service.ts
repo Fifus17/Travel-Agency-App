@@ -27,6 +27,7 @@ export class CartDataService {
         this.cartSubsciption = this.db.getCart(uid).subscribe((data) => {
           this.cartData = data;
           console.log(this.cartData);
+          this.cart = [];
           for(let i in this.cartData)
           {
             let tripToAdd = this.tripData.filter((trip) => trip.id == this.cartData[i].id)[0];

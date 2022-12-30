@@ -1,1 +1,35 @@
-<p>manage-trips works!</p>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h4>Manage Trips</h4>
+            <app-add-modal></app-add-modal>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item flex-fill id">
+                    ID
+                </li>
+                <li class="list-group-item flex-fill name">
+                    Name
+                </li>
+                <li class="list-group-item flex-fill manage">
+                    Manage
+                </li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item flex-fill id">
+                    0
+                </li>
+                <li class="list-group-item flex-fill name">
+                    Bochnia
+                </li>
+                <li class="list-group-item flex-fill button">
+                    <app-edit-modal></app-edit-modal>
+                </li>
+                <li class="list-group-item flex-fill button">
+                    <div class="btn btn-danger">Remove trip</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>

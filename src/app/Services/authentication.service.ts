@@ -17,14 +17,10 @@ export class AuthenticationService {
     manager: false,
     banned: false
   }
-  persistance: string = 'local';
+  persistence: string = 'local';
 
   constructor(private auth: AngularFireAuth, private db: DatabaseConnectionService, private router: Router) {
     auth.authState.subscribe(async (ev: any) => {
-      // console.log(this.userRoles);
-      // console.log(this.isLoggedIn());
-      // console.log(this.userData);
-      // console.log(' ');
       if (ev) {
         this.userData = ev;
         const roles = await this.db.getRoles(ev?.uid);
@@ -39,15 +35,11 @@ export class AuthenticationService {
           banned: false,
         };
       }
-      // console.log(this.userRoles);
-      // console.log(this.isLoggedIn());
-      // console.log(this.userData);
-      // console.log(' ');
     });
    }
 
   async signIn(email: string, password: string) {
-    await this.auth.setPersistence(this.persistance);
+    await this.auth.setPersistence(this.persistence);
     return await this.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {this.router.navigate(['home'])
       .catch((error) => {window.alert(error.message)});})
@@ -142,7 +134,7 @@ export class AuthenticationService {
   }
 
   async isManager() {
-    await new Promise(r => setTimeout(r, 1000));
+    await new Promise(r => setTimeout(r, 2000));
     if (this.userRoles.manager) return true;
     else {
       this.router.navigate(['home']);
@@ -162,5 +154,10 @@ export class AuthenticationService {
   async isBanned() {
     await new Promise(r => setTimeout(r, 1000));
     return this.userRoles.banned;
+  }
+
+  async changePersistence(newSetting: string) {
+    this.persistence = newSetting;
+    this.auth.setPersistence(this.persistence);
   }
 }

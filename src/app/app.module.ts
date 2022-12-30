@@ -40,6 +40,7 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { ManageTripsComponent } from './Components/manage-trips/manage-trips.component';
+import { EditModalComponent } from './Components/edit-modal/edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { ManageTripsComponent } from './Components/manage-trips/manage-trips.com
     PageNotFoundComponent,
     AdminDashboardComponent,
     ManageTripsComponent,
+    EditModalComponent,
   ],
   imports: [
     BrowserModule,

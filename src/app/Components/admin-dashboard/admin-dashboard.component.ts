@@ -15,12 +15,16 @@ export class AdminDashboardComponent implements OnInit {
   users: User[] = [];
   subscription: Subscription | undefined;
   form: FormGroup;
+  settings: FormGroup;
   roles = [];
 
   constructor(public auth: AuthenticationService, public db: DatabaseConnectionService, fb: FormBuilder) {
     this.form = fb.group({
       selected:  new FormArray([])
      });
+      this.settings = fb.group({
+        persistence: new FormControl('local')
+      });
    }
 
   ngOnInit(): void {
@@ -40,6 +44,30 @@ export class AdminDashboardComponent implements OnInit {
     let roles = this.users[e.target.id].roles;
     roles[e.target.className] = !roles[e.target.className];
     this.db.changeUserRoles(this.users[e.target.id].uid, roles);
+  }
+
+  isLocal() {
+    return this.auth.persistence == 'local';
+  }
+
+  isSession() {
+    return this.auth.persistence == 'session';
+  }
+
+  isNone() {
+    return this.auth.persistence == 'none';
+  }
+
+  setLocal() {
+    this.auth.changePersistence('local');
+  }
+
+  setSession() {
+    this.auth.changePersistence('session');
+  }
+
+  setNone() {
+    this.auth.changePersistence('none');
   }
 
 }

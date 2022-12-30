@@ -1,4 +1,21 @@
 <body>
+    <div class="card persistence">
+        <div class="card-header">Persistence mode settings</div>
+        <div class="card-body">
+            <form [formGroup]="settings" novalidate>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item local">
+                        <input type="radio" value="local" id="local" [checked]="isLocal()" (click)="setLocal()">
+                        Local
+                        <input type="radio" value="local" id="session" [checked]="isSession()" (click)="setSession()">
+                        Session
+                        <input type="radio" value="local" id="none" [checked]="isNone()" (click)="setNone()">
+                        None
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
     <div class="card">
         <div class="card-header">Admin Dashboard</div>
         <div class="card-body">
@@ -29,5 +46,4 @@
             </form>
         </div>
     </div>
-
 </body>

@@ -8,6 +8,10 @@ body {
     background-image: linear-gradient(0deg, #80D0C7 0%, #ffffff 100%);
 }
 
+.persistence {
+    margin-bottom: 50px;
+}
+
 .card {
     top: 10%;
     width: 80%;
@@ -28,4 +32,9 @@ body {
 
 .templates {
     margin-bottom: 20px;
+}
+
+#local, #session, #none {
+    margin-left: 10px;
+    margin-right: 10px;
 }

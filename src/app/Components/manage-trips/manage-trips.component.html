@@ -21,7 +21,7 @@
                     {{trip.id}}
                 </li>
                 <li class="list-group-item flex-fill name">
-                    {{trip.title}}, {{trip.country}}
+                    {{trip.title}}, {{trip.country}}, {{trip.dayOut}} - {{trip.dayIn}}
                 </li>
                 <li class="list-group-item flex-fill button">
                     <app-edit-modal [id]="trip.id"></app-edit-modal>

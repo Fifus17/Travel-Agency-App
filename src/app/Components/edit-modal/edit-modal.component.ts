@@ -12,41 +12,24 @@ import { DatabaseConnectionService } from 'src/app/Services/database-connection.
 export class EditModalComponent implements OnInit {
 
   @Input('id') id: number | undefined;
-  trips: any[] = [];
   thisTrip: Trip | undefined;
   tripsSubscription: Subscription | undefined;
+  image0: string = "";
+  image1: string = "";
+  image2: string = "";
+  bagno: string = "staticBackdropEd";
+  error: boolean = false;
 
   constructor(private db: DatabaseConnectionService) { }
 
   ngOnInit(): void {
     this.tripsSubscription = this.db.getTrips().subscribe((change) => {
-      this.trips = [];
       for (let trip of change) {
-        this.trips.push({
-          id: trip.id,
-          title: trip.title,
-          country: trip.country,
-          dayOut: trip.dayOut,
-          dayIn: trip.dayIn,
-          price: trip.price,
-          places: trip.places,
-          image: trip.image,
-          description: trip.description,
-          reviews: trip.reviews,
-        });
         if(trip.id == this.id) {
-          this.thisTrip = {
-            id: trip.id,
-            title: trip.title,
-            country: trip.country,
-            dayOut: trip.dayOut,
-            dayIn: trip.dayIn,
-            price: trip.price,
-            places: trip.places,
-            image: trip.image,
-            description: trip.description,
-            reviews: trip.reviews,
-          }
+          this.thisTrip = trip;
+          this.image0 = trip.image[0];
+          this.image1 = trip.image[1];
+          this.image2 = trip.image[2];
         }
       }
     });
@@ -77,16 +60,16 @@ export class EditModalComponent implements OnInit {
     image1: new FormControl('', [
       Validators.required,
     ]),
-    image2: new FormControl('', [
-      Validators.required,
-    ]),
-    image3: new FormControl('', [
-      Validators.required,
-    ]),
+    image2: new FormControl('', []),
+    image3: new FormControl('', []),
   });
 
   submit() {
-    if (this.form.valid) {
+    if (!this.form.valid) {
+      this.error = true;
+      return;
+    }
+    this.error = false;
       if(this.id != null && this.form.value.title != null && this.form.value.country != null && this.form.value.places != null && this.form.value.price != null && this.form.value.dayOut != null && this.form.value.dayIn != null && this.form.value.description != null && this.form.value.image1 != null && this.form.value.image2 != null && this.form.value.image3 != null) {
         let newTrip = {
           id: this.id,
@@ -106,4 +89,3 @@ export class EditModalComponent implements OnInit {
     }
   }
 
-}

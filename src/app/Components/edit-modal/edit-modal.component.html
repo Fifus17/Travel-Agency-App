@@ -1,10 +1,10 @@
-<div class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdropEdit">Edit trip</div>
+<div class="btn btn-secondary" data-bs-toggle="modal" [attr.data-bs-target]="'#'+bagno+id">Edit trip</div>
 
-<div class="modal fade" id="staticBackdropEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10000" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" [id]="bagno+id" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="10000" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Trip: Bochnia, Poland</h1>
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Trip: {{thisTrip?.title}}, {{thisTrip?.country}}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -12,40 +12,49 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label for="title" class="visually-hidden">Title</label>
-                    <input type="text" class="form-control" id="title" placeholder="Title">
+                    <input type="text" class="form-control" id="title" placeholder="Title" [value]="thisTrip?.title" formControlName="title">
                 </div>
                 <div class="col-md-6">
                     <label for="country" class="visually-hidden">Country</label>
-                    <input type="text" class="form-control" id="Country" placeholder="Country">
+                    <input type="text" class="form-control" id="Country" placeholder="Country" [value]="thisTrip?.country" formControlName="country">
                 </div>
                 <div class="col-md-6">
                     <label for="dateOut" class="visually-hidden">Date out</label>
-                    <input type="date" class="form-control" id="dateOut" placeholder="Date out">
+                    <input type="date" class="form-control" id="dateOut" placeholder="Date out" [value]="thisTrip?.dayOut" formControlName="dayOut">
                 </div>
                 <div class="col-md-6">
                     <label for="dateIn" class="visually-hidden">Date in</label>
-                    <input type="date" class="form-control" id="dateIn" placeholder="Date in">
+                    <input type="date" class="form-control" id="dateIn" placeholder="Date in" [value]="thisTrip?.dayIn" formControlName="dayIn">
                 </div>
                 <div class="col-md-6">
                     <label for="places" class="visually-hidden">Number of places</label>
-                    <input type="text" class="form-control" id="places" placeholder="Number of places">
+                    <input type="text" class="form-control" id="places" placeholder="Number of places" [value]="thisTrip?.places" formControlName="places">
                 </div>
                 <div class="col-md-6">
                     <label for="price" class="visually-hidden">Price</label>
-                    <input type="text" class="form-control" id="price" placeholder="Price">
+                    <input type="text" class="form-control" id="price" placeholder="Price" [value]="thisTrip?.price" formControlName="price">
                 </div>
                 <div class="col-md-12">
                     <label for="img" class="visually-hidden">Image link</label>
-                    <input type="text" class="form-control" id="img" placeholder="Image link">
+                    <input type="text" class="form-control" id="img" placeholder="Main image link" [value]="image0" formControlName="image1">
                 </div>
                 <div class="col-md-12">
+                  <label for="img" class="visually-hidden">Image link</label>
+                  <input type="text" class="form-control" id="img" placeholder="Second image link" [value]="image1" formControlName="image2">
+              </div>
+              <div class="col-md-12">
+                <label for="img" class="visually-hidden">Image link</label>
+                <input type="text" class="form-control" id="img" placeholder="Third image link" [value]="image2" formControlName="image3">
+            </div>
+                <div class="col-md-12">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" id="description" rows="3"></textarea>
+                    <textarea class="form-control" id="description" rows="3" [value]="thisTrip?.description" formControlName="description"></textarea>
                 </div>
             </div>
           </form>
         </div>
         <div class="modal-footer">
+          <h3 *ngIf="error">Wrong data</h3>
           <button type="button" class="btn btn-success" (click)="submit()">Update</button>
         </div>
       </div>

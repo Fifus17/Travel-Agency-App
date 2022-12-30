@@ -24,7 +24,7 @@ export class ShoppingCartCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data = this.dataService.getBasketData()[this.index];
+    // this.data = this.dataService.getBasketData()[this.index];
     this.passingData = this.data;
     this.counter = this.data.places;
     this.maxPlaces = this.data.places;

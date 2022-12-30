@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { withDisabledInitialNavigation } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 import { Trip } from '../Interfaces/ITrip';
 import { AuthenticationService } from './authentication.service';
 import { DatabaseConnectionService } from './database-connection.service';
@@ -16,6 +16,7 @@ export class CartDataService {
   tripData: Trip[] = [];
   tripSubscription: Subscription | undefined;
   cart: Trip[] = [];
+
 
   constructor(public db: DatabaseConnectionService, private auth: AuthenticationService, afauth: AngularFireAuth) { 
     afauth.authState.subscribe((data) => {
@@ -45,8 +46,9 @@ export class CartDataService {
     this.cartData[idx] = data;
   }
 
-  getBasketData(): Trip[] {
-    return this.cartData;
+  getBasketData(): Observable<Trip[]> {
+    console.log(this.cart);
+    return of(this.cart);
   }
 
   addTripToCart(trip: Trip) {

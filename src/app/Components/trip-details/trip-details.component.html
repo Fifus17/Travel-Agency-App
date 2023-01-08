@@ -52,17 +52,16 @@
             </p>
 
             <div class="current-stars">
-              <app-overall-review></app-overall-review>
+              <app-overall-review [data]="dataToPass"></app-overall-review>
             </div>
             <div class="comments-section"><h3 class="reviews-text">Reviews</h3></div>
             <div class="comment-form">
               <app-comment-form></app-comment-form>
             </div>
           <div class="comments-container">
-            <!-- ngFor po komponentach comment -->
-            <app-comment></app-comment>
-            <app-comment></app-comment>
-            <app-comment></app-comment>
+            <div class="comments" *ngFor="let comment of data.reviews">
+              <app-comment  [data]="comment"></app-comment>
+            </div>
           </div>
             
         </div>

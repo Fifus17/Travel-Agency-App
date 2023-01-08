@@ -4,22 +4,20 @@
         <h5 class="nickname">Guest</h5>
         <div class="stars-container">
             <strong>
-                <i class="bi star bi-star-fill"></i>
-                <i class="bi star bi-star-fill"></i>
-                <i class="bi star bi-star-fill"></i>
-                <i class="bi star bi-star-fill"></i>
-                <i class="bi star bi-star"></i>
+                <i [ngClass]="{'bi-star-fill' : data.points >= 1, 'bi-star' : data.points < 1}" class="bi star bi-star-fill"></i>
+                <i [ngClass]="{'bi-star-fill' : data.points >= 2, 'bi-star' : data.points < 2}" class="bi star bi-star-fill"></i>
+                <i [ngClass]="{'bi-star-fill' : data.points >= 3, 'bi-star' : data.points < 3}" class="bi star bi-star-fill"></i>
+                <i [ngClass]="{'bi-star-fill' : data.points >= 4, 'bi-star' : data.points < 4}" class="bi star bi-star-fill"></i>
+                <i [ngClass]="{'bi-star-fill' : data.points >= 5, 'bi-star' : data.points < 5}" class="bi star bi-star"></i>
             </strong>
         </div>
         <div class="date-container">
-            20.09.2022
+            {{data.date}}
         </div>
     </div>
     <div class="text-container">
         <p class="review">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim id quaerat aspernatur necessitatibus minus rerum suscipit reprehenderit aliquid ducimus? Tempore praesentium quibusdam magnam numquam laboriosam dicta architecto nesciunt ex voluptatibus.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim id quaerat aspernatur necessitatibus minus rerum suscipit reprehenderit aliquid ducimus? Tempore praesentium quibusdam magnam numquam laboriosam dicta architecto nesciunt ex voluptatibus.
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit ab nostrum voluptatibus error explicabo architecto accusamus illo iste incidunt, deserunt maiores praesentium, aperiam fuga eligendi. Neque possimus quibusdam ea corrupti?
+            {{data.text}}
         </p>
     </div>
 </div>

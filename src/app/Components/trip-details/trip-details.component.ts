@@ -18,9 +18,15 @@ export class TripDetailsComponent {
   @Input('data') data: any = [];
   @Input('index') index :number = -1;
   bagno: string = "staticBackdrop";
+  realIdx: number = -1;
+  dataToPass: any = [];
 
   constructor(public db: DatabaseConnectionService, public cart: CartDataService) {
 
+  }
+
+  ngOnInit() {
+    this.dataToPass = this.data;
   }
 
   addPlace() {

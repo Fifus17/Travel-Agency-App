@@ -70,12 +70,13 @@ export class EditModalComponent implements OnInit {
       return;
     }
     this.error = false;
-      if(this.id != null && this.form.value.title != null && this.form.value.country != null && this.form.value.places != null && this.form.value.price != null && this.form.value.dayOut != null && this.form.value.dayIn != null && this.form.value.description != null && this.form.value.image1 != null && this.form.value.image2 != null && this.form.value.image3 != null) {
+      if(this.id != null && this.form.value.title != null && this.form.value.country != null && this.form.value.places != null && this.form.value.price != null && this.form.value.dayOut != null && this.form.value.dayIn != null && this.form.value.description != null && this.form.value.image1 != null && this.form.value.image2 != null && this.form.value.image3 != null && this.thisTrip != null) {
         let newTrip = {
           id: this.id,
           title: this.form.value.title,
           country: this.form.value.country,
-          places: parseInt(this.form.value.places),
+          places: this.thisTrip?.places + this.thisTrip?.maxPlaces - parseInt(this.form.value.places),
+          maxPlaces: parseInt(this.form.value.places),
           price: parseInt(this.form.value.price),
           dayOut: this.form.value.dayOut,
           dayIn: this.form.value.dayIn,

@@ -10,5 +10,6 @@ export interface Trip {
     dayOut: string;
     dayIn: string;
     places: number;
+    maxPlaces: number;
     reviews: Review[];
 }

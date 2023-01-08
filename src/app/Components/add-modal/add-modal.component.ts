@@ -66,6 +66,7 @@ export class AddModalComponent {
         id: this.lastId + 1,
         title: this.form.value.title,
         country: this.form.value.country,
+        maxPlaces: parseInt(this.form.value.places),
         places: parseInt(this.form.value.places),
         price: parseInt(this.form.value.price),
         dayOut: this.form.value.dayOut,

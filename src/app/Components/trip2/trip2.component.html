@@ -39,7 +39,6 @@
         </span>
     </div>
     <p class="date">{{data.dayOut}} - {{data.dayIn}}</p>
-    <app-trip-details class="info" *ngIf="auth.isLoggedIn()"></app-trip-details> <!-- TODO: add data injection-->
     <div class="footer">
         <div class="buttons">
             <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button" (click)="removePlace()">-</button>

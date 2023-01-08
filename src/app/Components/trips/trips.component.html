@@ -2,6 +2,7 @@
     <div class="row g-3">
         <div class="col-md-3" *ngFor="let trip of trips; index as idx">
             <app-trip2 [data]="trip"[index]="idx"></app-trip2>
+            <app-trip-details class="info" *ngIf="auth.isLoggedIn()" [data]="trip" [index]="idx"></app-trip-details>
         </div>
     </div>
 </body>

@@ -3,6 +3,7 @@ import { Trip } from '../../Interfaces/ITrip';
 import { DatabaseConnectionService } from '../../Services/database-connection.service';
 import { CartDataService } from '../../Services/cart-data.service';
 import { Subscription } from 'rxjs';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
   selector: 'app-trips',
@@ -15,7 +16,8 @@ export class TripsComponent {
 
   constructor(
     public db: DatabaseConnectionService,
-    public cart: CartDataService
+    public cart: CartDataService,
+    public auth: AuthenticationService
     ) { }
 
   tripsSubscription: Subscription | undefined;

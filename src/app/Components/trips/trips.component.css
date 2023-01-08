@@ -12,4 +12,11 @@ body {
 
 .col-md-3 {
     padding: 0px;
+    position: relative;
+}
+
+app-trip-details {
+    position: absolute;
+    top: 30px;
+    right: 30px;
 }

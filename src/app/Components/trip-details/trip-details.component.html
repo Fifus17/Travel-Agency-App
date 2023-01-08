@@ -1,12 +1,12 @@
 <!-- Button trigger modal -->
 
-<button type="button" class="btn btn-grad" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<button type="button" class="btn btn-grad" data-bs-toggle="modal" [attr.data-bs-target]="'#'+bagno+index">
     <i class="bi bi-info-lg"></i>
     <!-- Details -->
   </button>
   
   <!-- Modal -->
-  <div class="modal modal-xl fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="10000" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal modal-xl fade" [id]="bagno+index" data-bs-keyboard="false" tabindex="10000" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -16,28 +16,28 @@
 
         <div class="modal-body">
             <!-- Carousel -->
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div [id]="'carouselExampleIndicators'+index" class="carousel slide" data-bs-ride="true">
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators'+index" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators'+index"  data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators'+index"  data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img [src]="data.image" class="d-block w-100" alt="...">
+                    <img [src]="data.image[0]" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img [src]="data.image" class="d-block w-100" alt="...">
+                    <img [src]="data.image[1]" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img [src]="data.image" class="d-block w-100" alt="...">
+                    <img [src]="data.image[2]" class="d-block w-100" alt="...">
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExampleIndicators'+index"  data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselExampleIndicators'+index"  data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>

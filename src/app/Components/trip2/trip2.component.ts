@@ -20,6 +20,8 @@ export class Trip2Component {
   minusButton: any;
   plusButton: any;
   cartIndex: number = -1;
+  mean: number = 0;
+  points: number[] = [0, 0, 0, 0, 0];
 
   constructor(private serviceData: CartDataService, public auth: AuthenticationService) {    
     this.minusButton = document.getElementById("minus-button");
@@ -31,6 +33,10 @@ export class Trip2Component {
     this.maxPlaces = this.data.places;
     if(this.cartData.filter((trip: Trip) => trip.id = this.idx).length > 0) {
       this.counter = this.cartData.filter((trip: Trip) => trip.id = this.idx)[0].places;
+    }
+    for(let comment of this.data.reviews) {
+      this.points[comment.points - 1]++;
+      this.mean = (this.points[0] + 2 * this.points[1] + 3 * this.points[2] + 4 * this.points[3] + 5 * this.points[4]) / this.data.reviews.length;
     }
   }
 

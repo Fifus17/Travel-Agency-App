@@ -27,6 +27,7 @@ export class TripDetailsComponent {
 
   ngOnInit() {
     this.dataToPass = this.data;
+    console.log(this.data.maxPlaces);
   }
 
   addPlace() {

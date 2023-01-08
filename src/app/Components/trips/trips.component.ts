@@ -37,6 +37,7 @@ export class TripsComponent {
           dayIn: trip.dayIn,
           price: trip.price,
           places: trip.places,
+          maxPlaces: trip.maxPlaces,
           image: trip.image,
           description: trip.description,
           reviews: trip.reviews,

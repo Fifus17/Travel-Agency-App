@@ -9,7 +9,7 @@ import { DatabaseConnectionService } from './database-connection.service';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  userData: any = null;
+  userData: Observable<any> | undefined;
   userRoles: Roles = {
     guest: true,
     client: false,
@@ -26,7 +26,6 @@ export class AuthenticationService {
         const roles = await this.db.getRoles(ev?.uid);
         this.userRoles = roles as Roles;
       } else {
-        this.userData = null;
         this.userRoles = {
           guest: true,
           admin: false,
@@ -77,7 +76,7 @@ export class AuthenticationService {
     this.router.navigate(['home']);
   }
 
-  getCurrentUserUID(): Observable<User> {
+  getCurrentUserUID(): Observable<User> | undefined {
     // return this.auth.currentUser;
     // return this.userData;
     let currentUserData: User;
@@ -119,9 +118,9 @@ export class AuthenticationService {
     }
   }
 
-  getUID(): string {
+  getUID(): Observable<any> | undefined {
     // await new Promise(r => setTimeout(r, 500));
-    return this.userData.uid;
+    return this.userData;
   }
 
   async isAdmin() {

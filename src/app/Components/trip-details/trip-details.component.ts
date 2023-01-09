@@ -20,35 +20,39 @@ export class TripDetailsComponent {
   bagno: string = "staticBackdrop";
   realIdx: number = -1;
   dataToPass: any = [];
+  places: number = 0;
+  minusButton: any;
+  plusButton: any;
 
   constructor(public db: DatabaseConnectionService, public cart: CartDataService) {
-
+    this.minusButton = document.getElementById("minus-button");
+    this.plusButton = document.getElementById("plus-button");
   }
 
   ngOnInit() {
     this.dataToPass = this.data;
     console.log(this.data.maxPlaces);
+    this.places = this.data.places;
   }
 
   addPlace() {
-    // this.places--;
-    // if(this.counter < this.maxPlaces) {
-    //   this.counter++;
-    //   // this.serviceData.changeCartData(this.serviceData.addCartData(this.data.id));
-    // }
-    // else {
-    //   this.minusButton.disabled = false;
-    // }
+    if(this.counter < this.data.places) {
+      this.places--;
+      this.counter++;
+    }
+    else {
+      this.minusButton.disabled = false;
+    }
   }
 
   removePlace() {
-    // this.places++;
-    // if(this.counter > 0) {
-    // this.counter--;
-    // }
-    // else {
-    //   this.minusButton.disabled = true;
-    // }
+    if(this.counter > 0) {
+      this.places++;
+      this.counter--;
+    }
+    else {
+      this.minusButton.disabled = true;
+    }
   }
 
 }

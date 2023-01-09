@@ -13,7 +13,6 @@ export class AppComponent {
 
   constructor(firestore: AngularFirestore) {
     this.items = firestore.collection('trips').valueChanges();
-    console.log(this.items);
   }
 
 }

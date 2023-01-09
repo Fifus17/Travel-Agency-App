@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { first, firstValueFrom, Observable } from 'rxjs';
 import { Trip } from '../Interfaces/ITrip';
@@ -12,7 +13,7 @@ export class DatabaseConnectionService {
   trips: Observable<Trip[]>;
   private nextId: number | undefined;
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase, private auth: AngularFireAuth) {
     this.trips = db.list<Trip>('trips').valueChanges();
     this.db
       .list('trips', (ref) => ref.orderByChild('id').limitToLast(1))
@@ -72,8 +73,19 @@ export class DatabaseConnectionService {
     this.db.list('users/' + uid).update('roles', roles);
   }
 
-  getOrderHistory(uid: string): Observable<any[]> {
+  getOrderHistoryOf(uid: string): Observable<any[]> {
     return this.db.list('users/' + uid + '/orders').valueChanges();
+  }
+
+  async getOrderHistory() : Promise<any> {
+    this.auth.currentUser.then((user) => {
+      if (user) {
+        return this.db.list('users/' + user.uid + '/orders').valueChanges();
+      }
+      else {
+        return new Observable();
+      }
+    });
   }
 
   getCart(uid: string): Observable<any[]> {

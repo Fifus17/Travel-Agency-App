@@ -10,14 +10,14 @@
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-half"></i>
                 <i class="bi bi-star"></i>
-                <!-- {{trip!.avgReview}}/5.0 -->
+                {{getAvgReview()}}/5.0
             </strong>
         </span>
     </div>
     <p class="date">{{trip!.dayOut}} - {{trip!.dayIn}}</p>
-    <button type="button" class="btn btn-grad plus-button sign-button" id="plus-button" [disabled]="this.counter == this.maxPlaces" (click)="addPlace()">+</button>
-    <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button" (click)="removePlace()">-</button>
-    <h6 class="counter">{{trip!.places}}</h6>
-    <h5 class="price">${{trip!.price * trip!.places}}</h5>
+    <button type="button" class="btn btn-grad plus-button sign-button" id="plus-button" [disabled]="this.counter == trip?.places" (click)="addPlace(trip!.id)">+</button>
+    <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button" (click)="removePlace(trip!.id)">-</button>
+    <h6 class="counter">{{places}}</h6>
+    <h5 class="price">${{trip!.price * places}}</h5>
 </div>
 

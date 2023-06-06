@@ -14,7 +14,7 @@
 <div class="offcanvas-body">
     <!-- Your cart is empty -->
     <div *ngFor="let item of cart; index as idx">
-        <app-shopping-cart-card [trip]="item"></app-shopping-cart-card>
+        <app-shopping-cart-card [trip]="findTrip(item.id)" [places]="item.places"></app-shopping-cart-card>
     </div>
 </div>
 <div class="offcanvas-footer">

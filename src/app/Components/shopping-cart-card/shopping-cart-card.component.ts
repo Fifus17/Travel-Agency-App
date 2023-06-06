@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Trip } from 'src/app/Interfaces/ITrip';
 import { CartDataService } from 'src/app/Services/cart-data.service';
+import { DatabaseConnectionService } from 'src/app/Services/database-connection.service';
 
 @Component({
   selector: 'app-shopping-cart-card',
@@ -9,49 +11,48 @@ import { CartDataService } from 'src/app/Services/cart-data.service';
 })
 export class ShoppingCartCardComponent implements OnInit {
 
-  data: any;
   @Input('trip') trip: Trip | undefined;
-  passingData: any;
-  changedData: any;
+  @Input('places') places: number = 0;
   counter: number = 0;
-  // currentPrice: number = 0;
-  maxPlaces: number = 0;
   minusButton: any;
   plusButton: any;
+  cart: Trip[] = [];
+  uid: string = "";
 
-  constructor(private dataService: CartDataService) {
+  constructor(
+    private data: CartDataService,
+    afauth: AngularFireAuth,
+    public db: DatabaseConnectionService
+  ) {
     this.minusButton = document.getElementById("minus-button");
     this.plusButton = document.getElementById("plus-button");
+    afauth.authState.subscribe((data) => {
+      if (data == null) return;
+      this.db.getCart(data?.uid).subscribe((cart) => {
+        this.cart = cart;
+        this.uid = data?.uid;
+        console.log(this.cart);
+      });
+    });
+  }
+  ngOnInit(): void {}
+
+  getAvgReview() : number {
+    let sum = 0;
+    for(let review of this.trip!.reviews) {
+      sum += review.points;
+    }
+    return sum / this.trip!.reviews.length;
   }
 
-  ngOnInit() {
-    // this.data = this.dataService.getBasketData()[this.index];
-    this.passingData = this.data;
-    this.counter = this.data.places;
-    this.maxPlaces = this.data.places;
+  addPlace(id: number) {
+    console.log(this.cart);
+    this.cart.find((trip) => trip.id == id)!.places++;
+    this.db.updateCart(this.uid, this.cart);
   }
 
-   addPlace() {
-    if(this.counter < this.maxPlaces) {
-      this.counter++;
-      this.changedData = this.data;
-      this.changedData.places = this.counter;
-      // this.dataService.setBasketData(this.changedData, this.index);
-    }
-    else {
-      this.minusButton.disabled = false;
-    }
-  }
-
-  removePlace() {
-    if(this.counter > 0) {
-      this.counter--;
-      this.changedData = this.data;
-      this.changedData.places = this.counter;
-      // this.dataService.setBasketData(this.changedData, this.index);
-    }
-    else {
-      this.minusButton.disabled = true;
-    }
+  removePlace(id: number) {
+    this.cart.find((trip) => trip.id == id)!.places--;
+    this.db.updateCart(this.uid, this.cart);
   }
 }

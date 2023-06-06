@@ -1,8 +1,8 @@
 <div class="card">
-    <img [src]="data.image" class="card-img-top" alt="...">
+    <img [src]="trip!.image[0]" class="card-img-top" alt="...">
     <!-- <h6 class="country">Poland</h6> -->
     <div class="name">
-        <h4>{{data.title}}</h4>
+        <h4>{{trip!.title}}</h4>
         <span class="badge rounded-pill bg-warning" style="padding: 3px 5px; height: 1.5em; margin-top: 0.55em; margin-left: 0.3em;">
             <strong style="font-size: 0.5em;">
                 <i class="bi bi-star-fill"></i>
@@ -10,14 +10,14 @@
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-half"></i>
                 <i class="bi bi-star"></i>
-                {{data.avgReview}}/5.0
+                <!-- {{trip!.avgReview}}/5.0 -->
             </strong>
         </span>
     </div>
-    <p class="date">{{data.dayOut}} - {{data.dayIn}}</p>
+    <p class="date">{{trip!.dayOut}} - {{trip!.dayIn}}</p>
     <button type="button" class="btn btn-grad plus-button sign-button" id="plus-button" [disabled]="this.counter == this.maxPlaces" (click)="addPlace()">+</button>
-    <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button" [disabled]="this.counter == 0" (click)="removePlace()">-</button>
-    <h6 class="counter">{{data.places}}</h6>
-    <h5 class="price">${{data.price * data.places}}</h5>
+    <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button" (click)="removePlace()">-</button>
+    <h6 class="counter">{{trip!.places}}</h6>
+    <h5 class="price">${{trip!.price * trip!.places}}</h5>
 </div>
 

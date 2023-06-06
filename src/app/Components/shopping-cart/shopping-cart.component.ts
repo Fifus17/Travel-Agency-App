@@ -5,6 +5,8 @@ import { Trip } from '../../Interfaces/ITrip';
 import { Observable, Subscription } from 'rxjs';
 import { take } from 'rxjs/operators'
 import { Data } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { DatabaseConnectionService } from 'src/app/Services/database-connection.service';
 
 
 @Component({
@@ -19,18 +21,16 @@ export class ShoppingCartComponent {
   cart: Trip[] = [];
   cart$: any;
 
-  constructor(private data: CartDataService) { }
-  ngOnInit(): void {
-    // this.cartSubscription = this.data.getBasketData().pipe(take(1)).subscribe((data) => {
-    //   console.log("data");
-    //   console.log(data);
-    //   this.cart = data;
-    //   console.log(" ");
-    //   console.log(this.cart);
-    // });
-    // this.check();
-    this.cart = this.data.cart;
+  constructor(private data: CartDataService, afauth: AngularFireAuth, public db: DatabaseConnectionService) { 
+    afauth.authState.subscribe((data) => {
+      if(data == null) return;
+      this.db.getCart(data?.uid).subscribe(cart => {
+        this.cart = cart;
+        console.log(this.cart);
+    });
+  });
   }
+  ngOnInit(): void {}
 
 
   totalPrice(): number {
@@ -47,12 +47,6 @@ export class ShoppingCartComponent {
       total += trip.places;
     }
     return total;
-  }
-
-  async check() {
-    await new Promise(r => setTimeout(r, 1000));
-    console.log("promise");
-    console.log(this.cart$);
   }
 
 }

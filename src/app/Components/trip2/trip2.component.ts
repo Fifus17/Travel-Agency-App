@@ -46,7 +46,7 @@ export class Trip2Component {
     console.log(this.idx);
     if(this.counter < this.maxPlaces) {
       this.counter++;
-      this.cartIndex = this.serviceData.addTripToCart(this.data);
+      // this.cartIndex = this.serviceData.addTripToCart(this.data);
     }
     else {
       this.minusButton.disabled = false;

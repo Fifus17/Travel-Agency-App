@@ -92,6 +92,10 @@ export class DatabaseConnectionService {
     return this.db.list('users/' + uid + '/cart').valueChanges();
   }
 
+  updateCart(uid: string, cart: any[]): void {
+    this.db.list('users/' + uid).update('cart', cart);
+  }
+
   getLastTripId(): Observable<any> {
     return this.db.list('trips', (ref) => ref.orderByChild('id').limitToLast(1)).valueChanges();
   }

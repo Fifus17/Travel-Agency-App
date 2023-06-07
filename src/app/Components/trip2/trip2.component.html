@@ -1,25 +1,25 @@
 <div class="card">
-    <img [src]="data.image[0]" class="card-img-top" alt="...">
+    <img [src]="trip!.image[0]" class="card-img-top" alt="...">
     <div class="name">
-        <h3 class="title">{{data.title}}</h3>
+        <h3 class="title">{{trip!.title}}</h3>
         <span class="badge rounded-pill bg-warning" style="padding: 3px 8px; height: 1.5em; margin-top: 0.8em; margin-left: 0.3em;">
             <strong style="font-size: 0.5em;">
                 <i class="bi bi-star-fill"></i>
-                {{mean.toFixed(1)}}/5.0
+                <!-- {{mean.toFixed(1)}}/5.0 -->
             </strong>
         </span>
     </div>
-    <p class="date">{{data.dayOut}} - {{data.dayIn}}</p>
+    <p class="date">{{trip!.dayOut}} - {{trip!.dayIn}}</p>
     <div class="footer">
-        <div class="buttons">
-            <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button" (click)="removePlace()">-</button>
+        <div class="buttons" *ngIf="auth.isLoggedIn()">
+            <button type="button" class="btn btn-grad minus-button sign-button" id="minus-button" (click)="removePlace(trip!.id)">-</button>
             <h6 class="counter">{{counter}}</h6>
-            <button type="button" class="btn btn-grad plus-button sign-button" id="plus-button" (click)="addPlace()">+</button>
+            <button type="button" class="btn btn-grad plus-button sign-button" id="plus-button" (click)="addPlace(trip!.id)">+</button>
         </div>
         <div class="checkout">
-            <h1 class="price">{{data.price}}$</h1>
+            <h1 class="price">{{trip!.price}}$</h1>
         </div>
     </div>
-    <app-trip-details class="info" *ngIf="auth.isLoggedIn()" [data]="data" [index]="idx"></app-trip-details>
+    <app-trip-details class="info" *ngIf="auth.isLoggedIn()" [data]="trip" [index]="trip!.id"></app-trip-details>
 </div>
 

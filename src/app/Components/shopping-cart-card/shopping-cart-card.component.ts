@@ -31,7 +31,6 @@ export class ShoppingCartCardComponent implements OnInit {
       this.db.getCart(data?.uid).subscribe((cart) => {
         this.cart = cart;
         this.uid = data?.uid;
-        console.log(this.cart);
       });
     });
   }
@@ -46,13 +45,17 @@ export class ShoppingCartCardComponent implements OnInit {
   }
 
   addPlace(id: number) {
-    console.log(this.cart);
-    this.cart.find((trip) => trip.id == id)!.places++;
-    this.db.updateCart(this.uid, this.cart);
+    if(this.cart.find((trip) => trip.id == id)!.places < this.trip!.places) {
+      this.cart.find((trip) => trip.id == id)!.places++;
+      this.db.updateCart(this.uid, this.cart);
+    }
   }
 
   removePlace(id: number) {
-    this.cart.find((trip) => trip.id == id)!.places--;
-    this.db.updateCart(this.uid, this.cart);
+    if(this.cart.find((trip) => trip.id == id)!.places > 0) {
+      this.cart.find((trip) => trip.id == id)!.places--;
+      this.db.updateCart(this.uid, this.cart);
+    }
+    else this.db.updateCart(this.uid, this.cart.filter((trip) => trip.id != id));
   }
 }

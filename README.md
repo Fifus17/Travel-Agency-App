@@ -17,7 +17,7 @@ Welcome to the Travel Agency App repository! This Angular project, integrated wi
 
 ## Live Demo 🌐
 
-Check out the live demo of the Travel Agency App [here](https://fifus17.github.io/Travel-Agency-App/). To access trips view you need to be logged in.
+Check out the live demo of the Travel Agency App [here](https://fifus17.github.io/Travel-Agency-App/). To access trips view you need to be logged in, but luckily signing up is super fast and easy! Since it is not a comercial product, You don't need to use a real e-mail for playing around.
 
 ## Screenshots 📷
 

@@ -61,4 +61,8 @@ export class ShoppingCartComponent {
     return this.trips.filter((trip) => trip.id == id)[0];
   }
 
+  checkout() {
+    this.db.checkout(this.uid);
+  }
+
 }

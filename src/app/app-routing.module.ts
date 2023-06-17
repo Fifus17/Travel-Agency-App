@@ -16,6 +16,8 @@ import { ClientGuard } from './Authentication Guards/client.guard';
 import { LoggedGuard } from './Authentication Guards/logged.guard';
 import { MasterGuard } from './Authentication Guards/master.guard';
 
+import { APP_BASE_HREF } from '@angular/common';
+
 const routes: Routes = [
   { path: '', component: MainScreenComponent },
   { path: 'Travel-Agency-App/home', component: MainScreenComponent },
@@ -31,6 +33,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/Travel-Agency-App/' }
+  ]
 })
 export class AppRoutingModule { }

@@ -10,7 +10,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">{{data.title}}, {{data.country}}</h1>
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">{{trip!.title}}, {{trip!.country}}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
@@ -24,13 +24,13 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img [src]="data.image[0]" class="d-block w-100" alt="...">
+                    <img [src]="trip!.image[0]" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img [src]="data.image[1]" class="d-block w-100" alt="...">
+                    <img [src]="trip!.image[1]" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img [src]="data.image[2]" class="d-block w-100" alt="...">
+                    <img [src]="trip!.image[2]" class="d-block w-100" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExampleIndicators'+index"  data-bs-slide="prev">
@@ -44,22 +44,22 @@
             </div>
             <!-- End of carousel -->
             <div class="name">
-              <h1 id="title-country">{{data.title}}, {{data.country}}</h1>
+              <h1 id="title-country">{{trip!.title}}, {{trip!.country}}</h1>
             </div>
-            <h5 id="date">{{data.dayOut}} - {{data.dayIn}}</h5>
+            <h5 id="date">{{trip!.dayOut}} - {{trip!.dayIn}}</h5>
             <p id="description">
-            {{data.description}}}
+            {{trip!.description}}
             </p>
 
             <div class="current-stars">
-              <app-overall-review [data]="dataToPass"></app-overall-review>
+              <app-overall-review [data]="trip!"></app-overall-review>
             </div>
             <div class="comments-section"><h3 class="reviews-text">Reviews</h3></div>
             <div class="comment-form">
-              <app-comment-form></app-comment-form>
+              <app-comment-form [data]="trip!"></app-comment-form>
             </div>
           <div class="comments-container">
-            <div class="comments" *ngFor="let comment of data.reviews">
+            <div class="comments" *ngFor="let comment of trip!.reviews">
               <app-comment  [data]="comment"></app-comment>
             </div>
           </div>
@@ -73,10 +73,10 @@
             <button type="button" class="btn btn-grad plus-button sign-button" id="plus-button" (click)="addPlace()">+</button>
           </div>
           <div class="progress" style="width: 500px;">
-            <div class="progress-bar" [ngClass]="{'bg-success': 100*this.places/data.maxPlaces > 60, 'bg-warning': 100*this.places/data.maxPlaces > 20 && 100* this.places/data.maxPlaces <= 60, 'bg-danger': 100*this.places/data.maxPlaces <= 20}" role="progressbar" [ngStyle]="{'width.%': 100*this.places/data.maxPlaces}" aria-valuemin="0" aria-valuemax="100">{{this.places}}</div>
+            <div class="progress-bar" [ngClass]="{'bg-success': 100*this.places/trip!.maxPlaces > 60, 'bg-warning': 100*this.places/trip!.maxPlaces > 20 && 100* this.places/trip!.maxPlaces <= 60, 'bg-danger': 100*this.places/trip!.maxPlaces <= 20}" role="progressbar" [ngStyle]="{'width.%': 100*this.places/trip!.maxPlaces}" aria-valuemin="0" aria-valuemax="100">{{this.places}}</div>
         </div>
           <div class="checkout">
-            <h3 class="price">{{data.price}}$</h3>
+            <h3 class="price">{{trip!.price}}$</h3>
             <button type="button" class="btn btn-grad">Add to cart</button>
           </div>
         </div>

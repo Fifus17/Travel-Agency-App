@@ -15,7 +15,7 @@ export class TripDetailsComponent {
   cartData:any;
   counter: number = 0;
 
-  @Input('data') data: any = [];
+  @Input('data') trip: Trip | undefined;
   @Input('index') index :number = -1;
   bagno: string = "staticBackdrop";
   realIdx: number = -1;
@@ -30,13 +30,13 @@ export class TripDetailsComponent {
   }
 
   ngOnInit() {
-    this.dataToPass = this.data;
+    this.dataToPass = this.trip;
     // console.log(this.data.maxPlaces);
-    this.places = this.data.places;
+    this.places = this.trip!.places;
   }
 
   addPlace() {
-    if(this.counter < this.data.places) {
+    if(this.counter < this.trip!.places) {
       this.places--;
       this.counter++;
     }

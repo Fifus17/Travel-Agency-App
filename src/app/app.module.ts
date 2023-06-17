@@ -37,7 +37,7 @@ import { LoginViewComponent } from './Components/login-view/login-view.component
 import { RegisterViewComponent } from './Components/register-view/register-view.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { ManageTripsComponent } from './Components/manage-trips/manage-trips.component';
 import { EditModalComponent } from './Components/edit-modal/edit-modal.component';
@@ -84,6 +84,7 @@ import { EditModalComponent } from './Components/edit-modal/edit-modal.component
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

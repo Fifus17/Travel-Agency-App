@@ -29,4 +29,6 @@ export class OverallReviewComponent {
     this.mean = (this.points[0] + 2 * this.points[1] + 3 * this.points[2] + 4 * this.points[3] + 5 * this.points[4]) / this.data.reviews.length;
   }
 
+  
+
 }

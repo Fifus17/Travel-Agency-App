@@ -4,6 +4,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/datab
 import { first, firstValueFrom, Observable } from 'rxjs';
 import { Trip } from '../Interfaces/ITrip';
 import { Roles, User } from '../Interfaces/IUser';
+import { Review } from '../Interfaces/IReview';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +54,18 @@ export class DatabaseConnectionService {
     });
   }
 
+  addReview(trip: Trip, review: Review): void {
+    this.db.list('trips').snapshotChanges().pipe(first()).subscribe((trips: any) => {
+      for (let t of trips) {
+        if (t.payload.val().id === trip.id) {
+          this.db.list('trips/' + t.payload.key + '/reviews').set(trip.reviews.length.toString(), review);
+          console.log('trips/' + t.payload.key + '/reviews');
+          break;
+        }
+      }
+    });
+  }
+
   getNextId(): number | undefined {
     return this.nextId;
   }
@@ -67,6 +80,10 @@ export class DatabaseConnectionService {
 
   addUser(user: User): void {
     this.db.list('users/').set(user.uid, user);
+  }
+
+  getUser(uid: string) {
+    return this.db.object<User>('users/' + uid).valueChanges();
   }
 
   changeUserRoles(uid: string, roles: Roles): void {

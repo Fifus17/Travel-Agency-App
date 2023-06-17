@@ -1,5 +1,7 @@
 export interface Review {
+    date: string;
     points: number;
-    comment: string;
-    user: number;
+    text: string;
+    uid?: string;
+    user?: string;
 }

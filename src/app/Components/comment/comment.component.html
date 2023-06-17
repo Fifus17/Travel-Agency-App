@@ -1,7 +1,7 @@
 <div class="card">
     <div class="photo-section">
         <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg" alt="person-photo">
-        <h5 class="nickname">Guest</h5>
+        <h5 class="nickname">{{name}}</h5>
         <div class="stars-container">
             <strong>
                 <i [ngClass]="{'bi-star-fill' : data.points >= 1, 'bi-star' : data.points < 1}" class="bi star bi-star-fill"></i>

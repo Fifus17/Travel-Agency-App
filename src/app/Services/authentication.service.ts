@@ -18,6 +18,7 @@ export class AuthenticationService {
     banned: false
   }
   persistence: string = 'local';
+  rolesFetched: boolean = false;
 
   constructor(private auth: AngularFireAuth, private db: DatabaseConnectionService, private router: Router) {
     auth.authState.subscribe(async (ev: any) => {
@@ -25,6 +26,7 @@ export class AuthenticationService {
         this.userData = ev;
         const roles = await this.db.getRoles(ev?.uid);
         this.userRoles = roles as Roles;
+        console.log(this.userRoles);
       } else {
         this.userRoles = {
           guest: true,
@@ -34,6 +36,7 @@ export class AuthenticationService {
           banned: false,
         };
       }
+      this.rolesFetched = true;
     });
    }
 
@@ -123,44 +126,44 @@ export class AuthenticationService {
     return this.userData;
   }
 
+  async isFetched() {
+    return new Promise((resolve) => {
+      const interval = setInterval(() => {
+        // Check your condition
+        if (this.rolesFetched) {
+          clearInterval(interval);
+          resolve('Condition fulfilled'); // Pass the resolved value
+        }
+      }, 100); // Adjust the interval time as needed
+    });
+  }
+
   async isAdmin() {
-    await new Promise(r => setTimeout(r, 1500));
-    if (this.userRoles.admin) return true;
-    else {
-      this.router.navigate(['home']);
-      return false;
-    }
+    await this.isFetched();
+    if (!this.userRoles.admin) this.router.navigate(['home']);
+    return this.userRoles.admin;
   }
 
   async isManager() {
-    await new Promise(r => setTimeout(r, 1500));
-    if (this.userRoles.manager) return true;
-    else {
-      this.router.navigate(['home']);
-      return false;
-    }
+    await this.isFetched();
+    if (!this.userRoles.manager) this.router.navigate(['home']);
+    return this.userRoles.manager;
   }
 
   async isMaster() {
-    await new Promise(r => setTimeout(r, 1500));
-    if (this.userRoles.manager || this.userRoles.admin) return true;
-    else {
-      this.router.navigate(['home']);
-      return false;
-    }
+    await this.isFetched();
+    if (!this.userRoles.admin && !this.userRoles.manager) this.router.navigate(['home']);
+    return this.userRoles.admin || this.userRoles.manager;
   }
 
   async isClient() {
-    await new Promise(r => setTimeout(r, 1000));
-    if (this.userRoles.client) return true;
-    else {
-      this.router.navigate(['home']);
-      return false;
-    }
+    await this.isFetched();
+    if (!this.userRoles.client) this.router.navigate(['home']);
+    return this.userRoles.client;
   }
 
   async isBanned() {
-    await new Promise(r => setTimeout(r, 1000));
+    await this.isFetched();
     return this.userRoles.banned;
   }
 

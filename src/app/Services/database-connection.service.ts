@@ -116,4 +116,8 @@ export class DatabaseConnectionService {
   getLastTripId(): Observable<any> {
     return this.db.list('trips', (ref) => ref.orderByChild('id').limitToLast(1)).valueChanges();
   }
+
+  checkout(uid: string) {
+    this.db.list('users/' + uid).update('cart', []);
+  }
 }

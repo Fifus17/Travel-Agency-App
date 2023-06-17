@@ -1,27 +1,47 @@
-# Travel Agency App
+# Travel Agency App 🌍
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+Welcome to the Travel Agency App repository! This Angular project, integrated with Firebase, allows users to explore, book, and review exciting travel trips. With authentication, role-based access control, and admin panels, managing trips and user interactions is made easy.
 
-## Development server
+## Features ✨
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- User Authentication: Sign up, log in, and log out securely to access personalized features.
+- Role-Based Access Control: Separate admin, manager and user roles for different privileges and functionality.
+- Admin Panel: Manage trips and users through an intuitive admin interfaces.
+- Trip Booking: Browse through a collection of enticing trips and make bookings with ease.
+- Trip Reviews: Share your experiences by leaving reviews for trips you've participated in.
 
-## Code scaffolding
+## Technologies Used 🛠️<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/640px-Angular_full_color_logo.svg.png" height=24><img src="https://miro.medium.com/max/600/1*R4c8lHBHuH5qyqOtZb3h-w.png" height=24>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular - A powerful JavaScript framework for building robust web applications.
+- Firebase - A comprehensive platform for developing mobile and web applications, providing authentication, database, and hosting services.
 
-## Build
+## Live Demo 🌐
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Check out the live demo of the Travel Agency App [here](https://fifus17.github.io/Travel-Agency-App/). To access trips view you need to be logged in.
 
-## Running unit tests
+## Screenshots 📷
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Trip Details
+![Trip Details](screenshots/trip-details.png)
 
-## Running end-to-end tests
+### Shopping Cart
+![Shopping Cart](screenshots/cart.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Reviews
+![Reviews](screenshots/reviews.png)
 
-## Further help
+### Manage Trips Panel
+![Manage Trips Panel](screenshots/manage-trips.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Manage Users Panel
+![Manage Users Panel](screenshots/manage-users.png)
+
+## License 📄
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Acknowledgements 🙏
+
+We would like to express our gratitude to the open-source community for their amazing contributions, which helped in the development of
+
+

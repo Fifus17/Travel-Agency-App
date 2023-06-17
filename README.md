@@ -10,7 +10,7 @@ Welcome to the Travel Agency App repository! This Angular project, integrated wi
 - Trip Booking: Browse through a collection of enticing trips and make bookings with ease.
 - Trip Reviews: Share your experiences by leaving reviews for trips you've participated in.
 
-## Technologies Used 🛠️<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/640px-Angular_full_color_logo.svg.png" height=24><img src="https://miro.medium.com/max/600/1*R4c8lHBHuH5qyqOtZb3h-w.png" height=24>
+## Technologies Used 🛠️
 
 - Angular - A powerful JavaScript framework for building robust web applications.
 - Firebase - A comprehensive platform for developing mobile and web applications, providing authentication, database, and hosting services.

@@ -3,7 +3,7 @@ import { getAnalytics } from "firebase/analytics";
 
 export const environment = {
   production: true,
-  firebaseConfig: {
+  firebase: {
     apiKey: "AIzaSyDuekJ8EvdJB4Hpj9sNGLGkWYL0ofJkqxA",
     authDomain: "drip-trip-c1c9c.firebaseapp.com",
     databaseURL: "https://drip-trip-c1c9c-default-rtdb.europe-west1.firebasedatabase.app",
@@ -16,5 +16,5 @@ export const environment = {
 };
 
 // Initialize Firebase
-const app = initializeApp(environment.firebaseConfig);
+const app = initializeApp(environment.firebase);
 const analytics = getAnalytics(app);

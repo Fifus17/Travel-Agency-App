@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "/Travel-Agency-App/",
             "outputPath": "dist/test-app-14",
             "index": "src/index.html",
             "main": "src/main.ts",

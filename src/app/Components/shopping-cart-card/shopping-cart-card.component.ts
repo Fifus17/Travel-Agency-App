@@ -52,10 +52,12 @@ export class ShoppingCartCardComponent implements OnInit {
   }
 
   removePlace(id: number) {
-    if(this.cart.find((trip) => trip.id == id)!.places > 0) {
+    if(this.cart.find((trip) => trip.id == id)!.places > 1) {
       this.cart.find((trip) => trip.id == id)!.places--;
       this.db.updateCart(this.uid, this.cart);
     }
-    else this.db.updateCart(this.uid, this.cart.filter((trip) => trip.id != id));
+    else {
+      this.db.updateCart(this.uid, this.cart.filter((trip) => trip.id !== id));
+    }
   }
 }

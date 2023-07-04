@@ -20,6 +20,7 @@ import { APP_BASE_HREF } from '@angular/common';
 
 const routes: Routes = [
   { path: '', component: MainScreenComponent },
+  { path: 'home', component: MainScreenComponent },
   { path: 'Travel-Agency-App/home', component: MainScreenComponent },
   { path: 'trips', component: TripsComponent },
   { path: 'history', component: HistoryComponent, canActivate: [ClientGuard]},

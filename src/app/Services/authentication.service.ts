@@ -26,7 +26,6 @@ export class AuthenticationService {
         this.userData = ev;
         const roles = await this.db.getRoles(ev?.uid);
         this.userRoles = roles as Roles;
-        console.log(this.userRoles);
       } else {
         this.userRoles = {
           guest: true,

@@ -40,8 +40,3 @@ Check out the live demo of the Travel Agency App [here](https://fifus17.github.i
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
-## Acknowledgements 🙏
-
-We would like to express our gratitude to the open-source community for their amazing contributions, which helped in the development of
-
-
